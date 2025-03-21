@@ -1,0 +1,25 @@
+.custom-slider .carousel img{
+    height:fit-content;
+    object-fit: cover;
+}
+.custom-slider{
+    padding: 0.5%;
+    margin: 1%;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+    .custom-slider .carousel img{
+        height: auto;
+    }
+}
+@media screen and (max-width: 575px) {
+    .custom-slider .carousel img{
+        height: auto;
+    }
+}

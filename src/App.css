@@ -1,0 +1,33 @@
+body{
+    font-family: "Cabin", serif;
+    /* font-family: "Merriweather", serif; */
+    /* background-image: url('/public/Assests/homeBg.jpg'); */
+    background-color: #ffffff;
+    background-size: cover ;
+    background-position: center;
+    height: 100vh;
+}
+
+/* Remove spinner buttons in WebKit browsers */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+
+.heading {
+    background-image: linear-gradient(179deg,rgb(254, 97, 158) 0%, rgb(254, 97, 158) 50%,transparent 54%, transparent 100%);
+  }
+
+  .h1 {
+    margin-bottom: 3.5rem;
+  } 
+  .h1 span {
+    background-size:  100% 15%;
+    background-repeat: repeat-x;
+    background-position: left 0% bottom 10%;
+   }

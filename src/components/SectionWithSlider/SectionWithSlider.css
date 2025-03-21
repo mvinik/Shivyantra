@@ -1,0 +1,49 @@
+.NextArrows{
+    display:block;
+    background-color:#FF5900;
+    border-radius: 50%;
+    right: -25px;
+    top: 50%;
+    transform: translate(0,-50%);
+    z-index: 2;
+    position: absolute;
+    padding: 10px;
+}
+.PrevArrow{
+    display:block;
+    background-color:#FF5900;
+    border-radius: 50%;
+    left: -25px;
+    top: 50%;
+    transform: translate(0,-50%);
+    z-index: 2;
+    position: absolute;
+    padding: 10px;
+}
+
+.NextArrows:hover, .PrevArrow:hover {
+    transform: translate(0, -50%) scale(1.1);
+    background-color: #b1470e; /* Slightly lighter shade */
+    cursor: pointer;
+}
+/* Example CSS for CartSideBar */
+.CartSideBar {
+    position: fixed;  /* Or absolute, if you want */
+    top: 0;
+    right: 0;
+    z-index: 1000;   
+  }
+
+  
+
+@media screen and (max-width: 450px) {
+    .PrevArrow{
+        left: 10px;
+        padding: 5px;
+    } 
+    .NextArrows{
+        right: 10px;
+        padding: 5px;
+    }
+}
+
