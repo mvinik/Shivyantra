@@ -124,16 +124,12 @@ const RelatedProducts = (props) => {
         ]
       };
 
-     
-      
-    
-
   return (
     <>
     {relatedProduct.length > 0 &&  <div className='px-4 sm:px-16 pb-16'>
-       <h2 class="flex flex-row flex-nowrap mb-10 items-center ">
+       <h2 class="flex flex-row flex-nowrap mb-10 items-center sm:text-center ">
  
-          <span class="flex-none block mx-4 px-4 py-2.5 lg:text-2xl rounded leading-none uppercase font-bold text-black">
+          <span class="flex-none block mx-4 px-4 py-2.5 lg:text-2xl rounded leading-none uppercase font-bold text-red">
               Related Products
           </span>
      

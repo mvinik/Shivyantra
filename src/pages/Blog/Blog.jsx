@@ -2,8 +2,10 @@ import React from "react";
 import { useQuery } from "react-query";
 import api from "../../Utils/api";
 import Loading from "../../components/Loading/Loading"
+import { useNavigate } from "react-router-dom";
 const baseUrl = api.defaults.baseURL;
 const Blog = () => {
+  const nav=useNavigate()
 
 const getBlog = async() =>{
   const res = await api.get('/api/blogs?populate=*')
@@ -15,21 +17,21 @@ const {data:blogData,isLoading} = useQuery('GetBlog', getBlog);
   if(isLoading)return <Loading/>;
   return (
     <>
-      <section className=" bg-cover p-4 md:p-10 ">
-        <div className=" ">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4 pt-10">
-              <div className="mx-auto text-center font-bold  text-[#545453] text-5xl uppercase lg:mb-20">
-                <h2 className="mb-4 text-3xl font-bold text-dark  sm:text-4xl md:text-[40px]">
-                  Our Blogs
-                </h2>
-                <p className="text-base sm:flex hidden text-gray ">
-                Shriworks' blog showcases a wide range of content, including idols, pooja items, and temple-related products, reflecting the essence of traditional spiritual practices. It's a space where devotees can explore and learn about various sacred offerings and artifacts.
-                </p>
-              </div>
-            </div>
+      <section className=" ">
+   
+          <div
+          className="relative w-full bg-cover  bg-center aspect-[16/5] mb-10"
+          style={{ backgroundImage: "url('https://gemsmantra.com/cdn/shop/articles/How_to_Activate_Rudraksha_55d42cab-a147-437d-a5a6-21fa9b3fc4cd.jpg?v=1742551969&width=1200')" }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 flex  m-10 justify-start ">
+            <h1 className="text-white text-3xl md:text-4xl text-start mt-60  font-bold">
+             Our Blogs
+            </h1>
           </div>
-          <div  className="-mx-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  flex-wrap">
+        </div>
+           
+          {/* <div  className="-mx-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  flex-wrap">
           {blogData?.map((blog,index)=>(
             <div key={index}>
               <BlogCard
@@ -40,9 +42,134 @@ const {data:blogData,isLoading} = useQuery('GetBlog', getBlog);
               </div>
               ))}
 
-            </div>
+            </div> */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+       
+            <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
+              <div
+              className=" m-5 flex flex-col justify-center items-start"
+             onClick={()=>nav('/blogcontent')} >
+              <div>
+                <img className="w-50 h-70 object-cover "
+                src='https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200' />
+              </div>
+              <h3 className="text-2xl m-2 font-semibold">How to Wear Rudraksha: Spiritual and Healing Benefits</h3>
+              <p className="m-2">Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees an...</p>
+              <button className="m-2 text-red">Read More</button>
+              </div>
 
-        </div>
+             
+            
+            
+            
+            
+            
+            
+            
+            </div>
+            
+            
+
+             
+        
       </section>
     </>
   );

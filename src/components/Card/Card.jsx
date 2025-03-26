@@ -165,21 +165,21 @@ const Card = ({ product }) => {
             <h3 className="text-black  flex text-[12px] truncate sm:text-sm font-bold text-wrap">
               {product?.attributes.ProductName}
             </h3>
-            {/* <h4 className="text-gray hidden sm:flex text-sm sm:text-md font-normal">
+            {/* <h4 className="text-black hidden sm:flex text-sm sm:text-md font-normal">
               {product?.attributes.SubTitle}
             </h4> */}
             {product?.attributes.Offer ? (
               <div className="flex  items-center sm:mt-2">
-                <span className="text-gray bottom-0 line-through text-[12px] opacity-50 lg:text-lg">
+                <span className="text-black bottom-0 line-through text-[12px] opacity-50 lg:text-lg">
                   &#8377;{product?.attributes.Price}
                 </span>
-                <span className="text-gray text-sm  lg:text-xl ml-1 font-bold sm:ml-2">
+                <span className="text-black text-sm  lg:text-xl ml-1 font-bold sm:ml-2">
                   &#8377;{OfferPrice}
                 </span>
               </div>
             ) : (
               <div className="flex  items-center sm:mt-2">
-                <span className="text-gray bottom-0 font-bold text-[12px]  lg:text-lg">
+                <span className="text-black bottom-0 font-bold text-[12px]  lg:text-lg">
                   &#8377;{product?.attributes.Price}
                 </span>
               </div>
@@ -207,7 +207,7 @@ const Card = ({ product }) => {
               className="CartBtn opacity-95 hidden hover:flex w-full"
               disabled
             >
-              <p className="text-gray font-bold">Out of Stock</p>
+              <p className="text-black font-bold">Out of Stock</p>
             </button>
           )} */}
         </div>

@@ -176,7 +176,7 @@ const Footer = () => {
       <div className="text-yellow p-6 mx-[5%] text-center flex justify-between">
         <div>
           <span className='opacity-50'>© 2024 Copyright : </span>
-          <a className="font-semibold uppercase hover:underline  hover:decoration-double" target='_blank' href="https://shriworks.com/">ShriWorks</a>
+          <a className="font-semibold uppercase hover:underline  hover:decoration-double" target='_blank' href="https://shriworks.com/">Shivyantra</a>
         </div>
         <div>
           <span className='opacity-50'>Developed by : </span>

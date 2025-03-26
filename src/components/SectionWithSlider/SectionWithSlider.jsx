@@ -105,7 +105,7 @@ const Section = SectionData;
 
           <h2 class="flex flex-row flex-nowrap items-center ">
 
-          <span class="flex-none block mx-4 px-4 py-2.5  lg:text-2xl rounded leading-none uppercase  text-red">
+          <span class="flex-none block mx-4 px-4 py-2.5 font-semibold lg:text-2xl rounded leading-none uppercase  text-red">
               {section.Title}
           </span>
           

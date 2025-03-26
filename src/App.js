@@ -26,6 +26,7 @@ import OrderSuccess from './pages/AddToCart/OrderSuccess';
 import TopSlider from './components/TopNav/TopSlider';
 import Query from './components/Query';
 import ScrollToTop from './components/Button/Button';
+import BlogContent from './pages/Blog/BlogContent';
 const client = new QueryClient();
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
           <Route path="/StrategicVision" element={< StrategicVision/>} />
           <Route path="/ForgetPassword" element={< ForgetPassword/>} />
           <Route  path='/query' element={<Query/>}/>
+          <Route  path='/blogcontent' element={<BlogContent/>}/>
         </Routes>
         <ScrollToTop/>
         <Footer />

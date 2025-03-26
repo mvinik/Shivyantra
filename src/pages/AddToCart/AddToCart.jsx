@@ -260,7 +260,7 @@ const AddToCart = () => {
                         onClick={() => RemoveCart(item.id)}
                         className="ml-4 px-3 py-1 bg-black  text-white rounded-md hover:bg-opacity-80"
                       >
-                        Remove
+                        x
                       </button>
                     </div>
                    ) : (

@@ -154,7 +154,7 @@ const TopNav = () => {
                   />
 
                   {/* Dropdown here */}
-                  {/* <Menu as="div" className="relative inline-block shadow-lg">
+                  {/* <Menu as="div" className="relative  inline-block shadow-lg">
                     <div>
                       <MenuButton className="inline-flex border-l  border-yellow items-center w-full justify-center  shadow-sm bg-white p-3 text-sm font-semibold text-black ">
                         {selectedCategory}
@@ -377,11 +377,12 @@ const TopNav = () => {
                 >
                   <div className="flex justify-between p-4 ">
                     <a href="/" className="text-xl font-bold text-red">
-                      <img
+                      {/* <img
                         className="h-16"
                         src="https://api.shriworks.com/uploads/logoo_d8327e38ee.png"
                         alt="Shriworks Logo"
-                      />
+                      /> */}
+                      <h3  className="text-xl font-bold text-red">Shivyantra</h3>
                     </a>
                     <button
                       onClick={() => setIsMenuOpen(false)}
@@ -429,7 +430,7 @@ const TopNav = () => {
                           />
                         </svg>
                       </Popover.Button>
-                      <Popover.Panel className="flex flex-col mt-2 text-red border-red border-solid border-2 border-t-0 border-b-4  px-4 py-2 rounded-xl">
+                      <Popover.Panel className="flex flex-col mt-2 text-black hover:text-red cursor-pointer shadow-lg shadow-red  px-4 py-2 rounded-xl">
                         {Array.isArray(Cate) ? (
                           Cate.map((category, index) => (
                             <a
@@ -523,7 +524,7 @@ const TopNav = () => {
             />
 
             {/* Dropdown here */}
-            <Menu as="div" className="relative  ">
+            {/* <Menu as="div" className="relative  ">
               <div>
                 <MenuButton className="flex border-l  border-yellow  items-center w-max justify-center  shadow-lg bg-white p-3 text-sm font-semibold text-black ">
                   {selectedCategory}
@@ -576,7 +577,7 @@ const TopNav = () => {
                   )}
                 </div>
               </MenuItems>
-            </Menu>
+            </Menu> */}
 
             <input
               type="button"

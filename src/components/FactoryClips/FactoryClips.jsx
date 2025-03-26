@@ -26,7 +26,7 @@ const FactoryClips = ({Media,isLoading}) => {
 
 <h2 class="flex flex-row flex-nowrap py-3 md:py-10 items-center ">
   
-          <span class="flex-none block mx-4 px-4 py-2.5 lg:text-2xl rounded leading-none uppercase font-thin  text-red">
+          <span class="flex-none block mx-4 px-4 py-2.5 lg:text-2xl rounded leading-none uppercase font-bold  text-red">
           our blog
           </span>
     

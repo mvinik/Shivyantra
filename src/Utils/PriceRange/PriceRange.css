@@ -2,7 +2,7 @@
     width: 100%;
     margin: auto;
     text-align: center;
-    padding:10px 55px;
+    
     z-index: 9999999;
   }
   
@@ -14,14 +14,12 @@
   }
   
   .range-values input {
-    width: 80px;
-    padding: 5px;
-    margin: 0 5px;
+    width: 70px;
     text-align: center;
-    border: 1px solid #0f0f0f;
     background-color:#ffffff ;
     color: #0f0f0f;
-    border-radius: 4px;
+    outline: none;
+   
   }
   
   .slider-container {
@@ -29,7 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 8px;
+    height: 4px;
     background:#FF5900;
     color:white;
     border-radius: 5px;
@@ -37,15 +35,16 @@
   }
   
   .thumb {
-    height: auto;
-    width: fit-content;
+    width: 2px;  /* Set width for rectangle */
+    height: 30px; /* Set height for rectangle */
     background-color: #FF5900;
-    border-radius: 10px;
+    border:none;
     padding:5px;
     cursor: pointer;
+    outline: none;
   }
   
   .track {
-    background: black;
+    background: #FF5900;
   }
   

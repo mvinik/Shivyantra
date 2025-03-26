@@ -115,7 +115,7 @@ const CategorySlider = ({ CategoryData }) => {
     <div className="py-2">
       <h2 className="flex flex-row flex-nowrap items-center">
       
-        <span className="flex-none block mx-4 px-4 py-2.5 lg:text-2xl uppercase rounded leading-none  font-thin text-red">
+        <span className="flex-none block mx-4 px-4 py-2.5 lg:text-2xl uppercase rounded leading-none  font-semibold text-red">
           Categories
         </span>
      
@@ -136,7 +136,7 @@ const CategorySlider = ({ CategoryData }) => {
               src={`${baseUrl}${cate?.category?.data?.attributes?.Image?.data?.attributes.url}`}
               alt={cate?.category?.data?.attributes?.CategoryName}
             />
-            <h1 className="absolute font-bold bottom-1 left-1/2 transform -translate-x-1/2 w-40  py-1 text-gray  rounded  text-[12px] sm:text-sm">
+            <h1 className="absolute font-bold bottom-1 left-1/2 transform -translate-x-1/2 w-40  py-1 text-black  rounded  text-[16px] sm:text-sm">
               {cate?.category?.data?.attributes?.CategoryName}
             </h1>
           </div>

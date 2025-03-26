@@ -13,11 +13,19 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import api from "../../Utils/api";
-
+import { ChevronDown, ChevronRight } from "lucide-react";
+ 
 const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortCategory }) => {
   const navigate = useNavigate();
+ 
   const handleMenuItemClick = (category) => {
     setSortCategory(category);
+  };
+
+  const [openCategory, setOpenCategory] = useState(null);
+
+  const toggleCategory = (categoryName) => {
+    setOpenCategory(openCategory === categoryName ? null : categoryName);
   };
 
   const handleFilterSelection = (filterType, value) => {
@@ -27,16 +35,16 @@ const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortC
     }));
   };
 
-  const clearFilters = () => {
-    setSortCategory("Default");
-    setSelectedFilters({
-      material: "",
-      price: "",
-      category: "",
-      search: ""
-    });
-    navigate('/shop');
-  };
+  // const clearFilters = () => {
+  //   setSortCategory("Default");
+  //   setSelectedFilters({
+  //     material: "",
+  //     price: "",
+  //     category: "",
+  //     search: ""
+  //   });
+  //   navigate('/shop');
+  // };
 
   const { data: Category } = useQuery('NavCategory', async () => {
     const res = await api.get(`api/categories?populate=*`);
@@ -45,168 +53,75 @@ const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortC
 
   return (
     <>
-      <section className="bg-white m-2 p-4">
-        <div className="flex flex-col sm:flex-row justify-between gap-2 sm:gap-10 items-center">
-          <div className="flex gap-2 sm:gap-6 ">
-            <h3 className="text-red flex-wrap text-lg font-bold">Filter :</h3>
-            <div className="flex gap-2 sm:gap-6">
-              {/* <Popover className="relative text-yellow outline-none border-none">
-          {({ open, close }) => (
-            <>
-            <PopoverButton className="flex outline-none font-bold gap-1 items-center">
-              Material
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-4"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </PopoverButton>
-            <PopoverPanel
-              anchor="bottom"
-              className="flex flex-col mt-2 z-50 text-yellow font-semibold  border-red border-solid border-2 border-t-0 border-b-4 bg-yellow   rounded-xl"
-            >
-              <h6
-                className="hover:bg-red hover:cursor-pointer  px-4 py-2 hover:text-yellow text-black"
-                onClick={() => {handleFilterSelection("material", "Gold");close();}}
-              >
-                Gold Plated
-              </h6>
-              <h6
-                className="hover:bg-red hover:cursor-pointer px-4 py-2 hover:text-yellow text-black"
-                onClick={() => {handleFilterSelection("material", "Silver");close();}}
-              >
-                Silver Plated
-              </h6>
-              <h6
-                className="hover:bg-red hover:cursor-pointer px-4 py-2 hover:text-yellow text-black"
-                onClick={() => {handleFilterSelection("material", "Brass");close();}}
-              >
-                Brass
-              </h6>
-              <h6
-                className="hover:bg-red hover:cursor-pointer px-4 py-2 hover:text-yellow text-black"
-                onClick={() => {handleFilterSelection("material", "Copper");close();}}
-              >
-                Copper
-              </h6>
-              <h6
-                className="hover:bg-red hover:cursor-pointer px-4 py-2 hover:text-yellow text-black"
-                onClick={() => {handleFilterSelection("material", "Panchalogam");close();}}
-              >
-                Panchalogam
-              </h6>
-            </PopoverPanel>
-            </>
-              )}
-          </Popover> */}
-              <div className="border border-red p-1">
+      <section className="bg-white  p-4">
+       
+        <div className="mb-5">
 
-                <Popover className="relative  border-red text-red outline-none border-none">
-                  {({ open, close }) => (
-                    <>
-                      <PopoverButton className="flex outline-none font-semibold  gap-1 items-center">
-                        Price
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
+          <p className="text-black text-left font-bold text-xl">Filter By Price </p>
+          <PriceRange
 
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="size-4"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                          />
-                        </svg>
-                      </PopoverButton>
-                      <PopoverPanel
-                        anchor="bottom"
-                        className="flex flex-col mt-2 z-50 text-red font-semibold shadow-red shadow-md bg-yellow   rounded-xl"
-                      >
-                        <div>
-                          <p className="text-black text-center p-2">Pick A Range :</p>
-                        </div>
-                        <div>
-                          <PriceRange
-                            onConfirm={close}
-                            onChange={(range) => {
-                              handleFilterSelection("price", range);
-                            }}
-                          />
-                        </div>
-                      </PopoverPanel>
-                    </>
+            onChange={(range) => {
+              handleFilterSelection("price", range);
+            }}
+          />
+
+        </div>
+        <div className="">
+          <h2 className="text-xl font-bold ">Categories</h2>
+          <ul>
+
+            {Array.isArray(Category) ? (
+              Category?.map((category, index) => (
+                <Link
+                  key={index}
+                  className='relative transition-all duration-200 px-4 py-2 text-black'
+
+                  to={`/shop?category=${encodeURIComponent(category?.attributes?.CategoryName)}`}
+                >
+                  <div className='flex flex-col justify-center items-center gap-2 '>
+                    {/* <span className="block px-4 py-2  w-full text-sm text-black
+                                     hover:bg-red translate-x-1 transition-all duration-300 hover:text-white"
+
+                  >{category?.attributes?.CategoryName}</span> */}
+                    <button
+                      onClick={() => toggleCategory(category?.attributes?.CategoryName)}
+                      className="flex items-center justify-between w-full text-left p-2 bg-gray-200 hover:bg-gray-300 rounded-md"
+                    >
+                      {category?.attributes?.CategoryName}
+                      {openCategory === category?.attributes?.CategoryName ? (
+                        <ChevronDown size={16} />
+                      ) : (
+                        <ChevronRight size={16} />
+                      )}
+                    </button>
+                    {openCategory === category?.attributes?.CategoryName && (
+                    <ul className="ml-4 mt-2">
+                     {category?.attributes?.subcategories?.data?.map((subcategory, subIndex) => (
+                      <li key={subIndex} className="p-1 text-red hover:text-black cursor-pointer">
+                        
+                        <button
+                    onClick={() => handleFilterSelection('subcategory', subcategory?.attributes?.text)}
+                    className="text-black "
+                  >
+                  {subcategory?.attributes?.text}
+                  </button>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </Popover>
-              </div>
-              <div className="border border-red p-1">
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <p>No categories available</p>
+            )}
+          </ul>
+        </div>
+ 
 
-                <Popover className="relative  text-red outline-none border-none">
-                  {({ open, close }) => (
-                    <>
-                      <PopoverButton className="flex outline-none font-semibold gap-1  items-center ">
-                        Category
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="size-4"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                          />
-                        </svg>
-                      </PopoverButton>
 
-                      <PopoverPanel
-                        anchor="bottom"
-                        className="flex flex-col mt-2 z-50 h-96 w-fit  text-red font-semibold   bg-yellow   rounded-xl  shadow-red shadow-md"
-                      >
-                        {Array.isArray(Category) ? (
-                          Category?.map((category, index) => (
-                            <Link
-                              key={index}
-                              className='relative hover:scale-110 transition-all duration-200 px-4 py-2 text-black'
-                              onClick={close}
-                              to={`/shop?category=${encodeURIComponent(category?.attributes?.CategoryName)}`}
-                            >
-                              <div className='flex flex-col justify-center items-center gap-2 '>
-                                <span className="block px-4 py-2  w-full text-sm text-black
-                              hover:bg-red translate-x-1 transition-all duration-300 hover:text-white"
-                              
-                              >{category?.attributes?.CategoryName}</span>
-                              </div>
-                            </Link>
-                          ))
-                        ) : (
-                          <p>No categories available</p>
-                        )}
-                      </PopoverPanel>
-                    </>
-                  )}
-                </Popover>
 
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center items-center gap-2 sm:gap-6  text-red">
+        {/* <div className="flex justify-center items-center gap-2 sm:gap-6  text-red">
           <h3 className="text-red flex-wrap text-lg font-bold">Sort By :   </h3>
             <div className="">
               <Menu as="div" className="relative  inline-block ">
@@ -320,38 +235,11 @@ const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortC
                 </MenuItems>
               </Menu>
             </div>
-          </div>
-        </div>
+          </div> 
+       */}
       </section>
 
 
-      {selectedFilters.category || selectedFilters.material || selectedFilters.price || selectedFilters.search ? (
-        <div className="mt-4 mx-4 flex flex-col sm:flex-row sm:justify-start sm:gap-5 sm:items-center">
-          <p className="text-lg text-red font-bold ">Selected Filters:</p>
-          <div className="flex gap-2">
-            {Object.entries(selectedFilters).map(([key, value]) => (
-              key === 'price' && value ? (
-                // Format price range
-                <span key={key} className="bg-yellow flex text-sm sm:text-lg shadow-lg shadow-red text-red px-2 py-1 rounded-md">
-                  {`Price: ${value[0]} - ${value[1]}`}
-                </span>
-              ) : (
-                value && (
-                  <span key={key} className="bg-yellow flex text-sm sm:text-lg shadow-lg shadow-red text-red px-2 py-1 rounded-md">
-                    {`${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`}
-                  </span>
-                )
-              )
-            ))}
-            <button
-              className="bg-red shadow-lg hover:scale-105 transition-all duration-200 shadow-red text-yellow px-3 py-1 rounded-md"
-              onClick={clearFilters}
-            >
-              Clear Filters
-            </button>
-          </div>
-        </div>
-      ) : null}
 
     </>
   );
