@@ -69,7 +69,7 @@ const CategorySlider = ({ CategoryData }) => {
   };
   const settings = {
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     // speed: 1000,
     autoplaySpeed: 2500,
     slidesToShow: 5,
@@ -95,7 +95,7 @@ const CategorySlider = ({ CategoryData }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerMode: false,
+          centerMode: true,
           rows: 1,
         },
       },
@@ -105,38 +105,49 @@ const CategorySlider = ({ CategoryData }) => {
           slidesToShow: 2,
           slidesToScroll: 1,
           rows: 1,
-          centerMode: false,
+          centerMode: true,
+        },
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: 1,
+          centerMode: true,
         },
       },
     ],
   };
 
   return (
-    <div className="py-2">
-      <h2 className="flex flex-row flex-nowrap items-center">
-      
-        <span className="flex-none block mx-4 px-4 py-2.5 lg:text-2xl uppercase rounded leading-none  font-semibold text-red">
+    <div className="py-5 justify-center items-center w-50 h-96">
+           <h2 className="flex flex-row flex-nowrap items-center">
+        <span className="flex-grow block border-t border-red"></span>
+        <span className="flex-none block mx-4 px-4 py-2.5 lg:text-xl rounded leading-none uppercase font-bold bg-red text-yellow">
           Categories
         </span>
-     
+        <span className="flex-grow block border-t border-red"></span>
       </h2>
 
-      <Slider className="cateSlider mt-5 md:mt-10" {...settings}>
+      <Slider className="cateSlider flex  justify-center items-center" {...settings}>
         {category?.map((cate, index) => (
           <div
             key={index}
-            className="h-50 w-10 relative sm:h-60 sm:w-60 flex justify-center items-center text-center cursor-pointer  bg-transparent rounded"
+            className="py-20 flex flex-col w-full  justify-center items-center text-center cursor-pointer  bg-transparent rounded"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={() => handleMouseUp(cate?.category?.data?.attributes?.CategoryName)}
           >
+            <div className='object-fit w-full h-full px-1 flex items-center justify-center  '>
             <img
-            style={{width:'150px',height:'150px',marginLeft:'20px'}}
-              className="object-fill h-full w-full rounded-full justify-center items-center"
+            // style={{width:'150px',height:'150px'}}
+              className="h-32 w-32 rounded-full"
               src={`${baseUrl}${cate?.category?.data?.attributes?.Image?.data?.attributes.url}`}
               alt={cate?.category?.data?.attributes?.CategoryName}
             />
-            <h1 className="absolute font-bold bottom-1 left-1/2 transform -translate-x-1/2 w-40  py-1 text-black  rounded  text-[16px] sm:text-sm">
+            </div>
+            <h1 className="font-bold mt-2 text-center py-5 text-black text-md rounded  text-[16px] sm:text-sm">
               {cate?.category?.data?.attributes?.CategoryName}
             </h1>
           </div>

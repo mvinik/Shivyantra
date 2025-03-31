@@ -54,10 +54,10 @@ const StrategicVision = () => {
   ];
 
   return (
-    <div className="strategic-vision py-10 text-justify px-4 sm:px-20 text-gray">
+    <div className="strategic-vision py-10 text-justify px-4  md:px-5 lg:px-5 text-black ">
       {/* Strategic Vision Section */}
       <section className="vision-section mb-8">
-        <h2 className="text-3xl font-bold mb-4 text-[#545453] p-2 bg4 uppercase">Strategic Vision / Mission</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red  uppercase">Strategic Vision / Mission</h2>
         <p className="mb-4">
           To be the premier provider of exquisite temple ornaments, statues, and other temple-oriented works, renowned for our craftsmanship and dedication to preserving and enhancing the sacred beauty of spiritual and religious art. We aim to blend traditional techniques with innovative design, creating products that not only enrich spiritual practices but also stand as timeless symbols of devotion and cultural heritage.
         </p>
@@ -68,13 +68,13 @@ const StrategicVision = () => {
 
       {/* Services Section */}
       <section className="services-section">
-        <h2 className="text-3xl font-bold mb-6 text-[#545453] p-2 bg4 uppercase">Our Services</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-red  uppercase">Our Services</h2>
 
         {services.map((service, index) => (
           <div key={index} className="service-item mb-8">
-            <h3 className="text-2xl font-semibold mb-2">{service.title}</h3>
+            <h3 className="text-xl md:text-2xl font-semibold text-red mb-2">{service.title}</h3>
             <p className="mb-4">{service.description}</p>
-            <ul className="list-disc list-inside">
+            <ul className="list-disc list-inside custom-list">
               {service.items.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
@@ -82,6 +82,15 @@ const StrategicVision = () => {
           </div>
         ))}
       </section>
+        {/* Custom CSS for Tailwind */}
+        <style>
+        {`
+          .custom-list li::marker {
+            font-size: 1.5rem; /* Increases bullet size */
+            color: #993d00; /* Changes bullet color */
+          }
+        `}
+      </style>
     </div>
   );
 };

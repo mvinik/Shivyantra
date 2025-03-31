@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
+import FreeDeliveryProgress from "../../components/Query";
 import {
   removeItem,
   increaseQuantity,
@@ -211,11 +212,13 @@ const AddToCart = () => {
     </div>  */}
 <div className="p-4 mt-5">
 <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
-  {/* Mobile-Friendly Table */}
-  <div className="hidden sm:block overflow-hidden">
+      <FreeDeliveryProgress cartTotal={totalAmount.toFixed(2)} />
+  {/* Large view Table */}
+  <div className="hidden md:block overflow-hidden  ">
   <table className="w-full border-collapse ">
         <thead>
           <tr className="bg-gray-100 text-lg text-left">
+            <th></th>
             <th className=" px-4 py-2">Product</th>
             <th className=" px-4 py-2">Product Name</th>
             <th className=" px-4 py-2">Quantity</th>
@@ -225,17 +228,23 @@ const AddToCart = () => {
         </thead>
         <tbody>
           {cart?.carts?.map((item, index) => (<>
-            <tr key={item.id} className="text-left ">
-              <td className=" px-4 py-2">
+            <tr key={item.id} className="text-left   mb-4 rounded-md shadow-red shadow-sm ">
+              <td className=" p-2 "><button
+               onClick={() => RemoveCart(item?.id)}
+               className="ml-auto  text-red-600  p-2 text-center text-black rounded-md text-opacity-80">
+                x
+                </button></td>
+              <td className=" p-4 ">
+              
                 <img
                   src={`${baseUrl}${item.product?.ProductImage[0]?.url}`}
                   className="h-20 w-20 object-cover rounded"
                   alt={item.product.ProductName}
                 />
               </td>
-              <td className=" text-sm uppercase px-4 py-2">{item.product.ProductName}</td>
+              <td className=" text-sm uppercase p-4">{item.product.ProductName}</td>
 
-              <td className="  px-2 py-2">
+              <td className=" p-4">
              
                      {item?.product?.AvailableQuantity ? (
                       <div className="flex items-center">
@@ -256,18 +265,18 @@ const AddToCart = () => {
                       >
                         +
                       </button>
-                      <button
+                      {/* <button
                         onClick={() => RemoveCart(item.id)}
                         className="ml-4 px-3 py-1 bg-black  text-white rounded-md hover:bg-opacity-80"
                       >
                         x
-                      </button>
+                      </button> */}
                     </div>
                    ) : (
                      <p className="text-red font-bold">Out of Stock</p>
                    )}
               </td>
-              <td className="px-3">
+              <td className="p-4">
                 <>
                   {item.product?.Offer ? (
                     <p className="text-black font-bold">
@@ -279,7 +288,7 @@ const AddToCart = () => {
                     </p>
                   )}</>
               </td>
-              <td className="px-3" >
+              <td className="p-4" >
                 {item?.product?.AvailableQuantity ? (
                   <>
                     {item.product?.Offer ? (
@@ -302,21 +311,43 @@ const AddToCart = () => {
               </td>
 
             </tr>
-            <tr><td colSpan="5"><hr className="my-2  border-black" /></td></tr>
+            {/* <tr><td colSpan="5"><hr className="my-2  border-black" /></td></tr> */}
           </>
           ))}
         </tbody>
       </table>
+      <div className="flex justify-end items-center">
+      <div className="m-10 flex flex-col   gap-4   ">
+  <div className="flex flex-col font-bold p-3 gap-1 w-full lg:w-auto">
+    <p className="text-lg flex justify-between text-black pb-2">
+      Total Items: <span className="font-semibold">{totalQuantity}</span>
+    </p>
+    <p className="text-lg flex justify-between text-black pb-2">
+      Total Amount: <span className="ps-2 font-semibold">&#8377; {totalAmount}</span>
+    </p>
+  </div>
+  <Link
+    to={"/checkout"}
+    className="px-6 py-2 bg-green text-white font-bold rounded-md hover:bg-green w-full lg:w-auto text-center"
+  >
+    Proceed to Checkout
+  </Link>
+ 
+</div> 
+      </div>
   </div>
 
   {/* Mobile View - Card Layout */}
-  <div className="sm:hidden flex flex-col gap-4">
+  <div className="block md:hidden flex flex-col gap-4">
     {cart?.carts?.map((item) => (
-      <div key={item.id} className=" flex  flex-row border p-3 rounded-lg shadow-sm">
-      <button
+      <div key={item.id} className=" flex  flex-row  gap-2 mb-4 rounded-md shadow-red shadow-sm ">
+     
+        <div className="flex items-center justify-between gap-5 m-3  ">
+        <button
                onClick={() => RemoveCart(item?.id)}
-               className="ml-auto mr-2 text-red-600  p-1 text-black rounded-md text-opacity-80">x</button>
-        <div className="flex items-center gap-4">
+               className="ml-auto  text-red-600  p-2 text-center text-black rounded-md text-opacity-80">
+                x
+                </button>
           <img
             src={`${baseUrl}${item.product?.ProductImage[0]?.url}`}
             className="h-20 w-20 object-cover rounded"
@@ -374,10 +405,10 @@ const AddToCart = () => {
     <div className="m-10 flex flex-col lg:flex-row gap-4 justify-between items-center">
   <div className="flex flex-col font-bold rounded-xl p-3 gap-1 w-full lg:w-auto">
     <p className="text-lg flex justify-between text-black">
-      Total Items: <span className="font-semibold">{totalQuantity}</span>
+      Total Items: <span className=" font-semibold">{totalQuantity}</span>
     </p>
     <p className="text-lg flex justify-between text-black">
-      Total Amount: <span className="ml-1 font-semibold">&#8377; {totalAmount}</span>
+      Total Amount: <span className="ps-2 font-semibold">&#8377; {totalAmount}</span>
     </p>
   </div>
   <Link
@@ -396,7 +427,7 @@ const AddToCart = () => {
   </div>
 
   {/* Cart Summary & Checkout */}
-  <div className="m-10 flex flex-col hidden lg:block lg:flex-row  gap-4 justify-between items-center  ">
+  {/* <div className="m-10 flex flex-col hidden lg:block lg:flex-row  gap-4 justify-between items-center  ">
   <div className="flex flex-col font-bold p-3 gap-1 w-full lg:w-auto">
     <p className="text-lg flex justify-between text-black">
       Total Items: <span className="font-semibold">{totalQuantity}</span>
@@ -413,15 +444,15 @@ const AddToCart = () => {
   </Link>
   <>
   </>
-</div>
-<div className="flex justify-center mt-4">
+</div> */}
+{/* <div className="flex justify-center mt-4">
   <Link
     to="/shop"
     className="px-6 py-2 bg-red text-white font-bold text-center rounded-md hover:bg-opacity-80"
   >
     Continue to Shopping
   </Link>
-</div>
+</div> */}
 
 </div>
 

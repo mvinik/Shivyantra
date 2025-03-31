@@ -15,7 +15,7 @@ if(localStorage.getItem("RegUserId")){
 }else if(localStorage.getItem("LoginUserId")){
   UserId = localStorage.getItem("LoginUserId");
 }
-
+console.log("userid",UserId)
 let JWT;
 
 if(localStorage.getItem('RegJWT')){
@@ -233,8 +233,8 @@ const {data:cart, isError} = useQuery('getCart',async() =>{
   return (
     <div className="lg:p-10 p-5">
       <div className="flex max-sm:flex-col gap-12 max-lg:gap-4 ">
-        <div className="bg-gradient-to-r border border-red border-opacity-60 sm:h-fit bg-white sm:sticky sm:top-0 lg:min-w-[370px] sm:min-w-[300px]">
-        <h2 className="text-2xl font-bold text-red mt-6 ml-3">Your Order</h2>
+        <div className=" sm:h-fit bg-white sm:sticky sm:top-0 lg:min-w-[370px] sm:min-w-[300px]">
+        <h2 className="text-2xl font-bold text-red mt-8 ml-3">Your Order</h2>
           <div className="px-4 py-8 sm:overflow-auto  space-y-4">
             {cart?.carts?.map((cart, index) => (
               <div className="flex items-start gap-4 border-b-2 rounded-md border-red border-opacity-60" key={index}>

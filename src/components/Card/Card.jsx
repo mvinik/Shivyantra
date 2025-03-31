@@ -130,6 +130,8 @@ const Card = ({ product }) => {
     return (
     <>
     <CartSideBar isCartOpen={isSidebarOpen}   enableRefetch={enableRefetch} onRefetchHandled={handleRefetch} onCartClose={()=>setSidebarOpen(false)} />
+    
+    
     <div className="relative bg-white p-2 sm:p-4 rounded-lg shadow-md transition-shadow duration-300 hover:shadow-red hover:shadow-lg">
 
       <div className="max-w-xs w-70 h-50 relative sm:max-w-sm  bg-[#ffffff]  hover:cursor-pointer   transition-all duration-400   mx-1 rounded-lg overflow-hidden">

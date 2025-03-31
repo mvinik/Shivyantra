@@ -10,6 +10,43 @@ import { useNavigate } from 'react-router-dom';
 
 const baseUrl = api.defaults.baseURL;
 const FactoryClips = ({Media,isLoading}) => {  
+  const blog = [{
+    title: "How to Wear Rudraksha: Spiritual and Healing Benefits",
+    discription:
+      `Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees and are believed to aid in all aspects: physically, mentally and spiritually. As described in Indian ancient texts, it is believed that wearing rudraksha beads will help in repelling evil and bring forth peace by attracting positive energy. The beads, due to their structure and composition, are useful during chanting mantras or meditating.Venturing into the metaphysical territory, rudraksha beads have astrological and health promoting properties. It is believed that these beads can help in chakra balancing, emotional toggle and supervision of the body. Each bead has its own spiritual and astrological significance as it comes in various mukhis and corresponds to a particular need. They can be worn as malas or jewelry, they cross the borders of faiths and speak to anyone who wishes to heal and go deep within themselves.`
+    ,
+    image: 'https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200',
+
+  },{
+    title: "How to Wear Rudraksha: Spiritual and Healing Benefits",
+    discription:
+      `Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees and are believed to aid in all aspects: physically, mentally and spiritually. As described in Indian ancient texts, it is believed that wearing rudraksha beads will help in repelling evil and bring forth peace by attracting positive energy. The beads, due to their structure and composition, are useful during chanting mantras or meditating.Venturing into the metaphysical territory, rudraksha beads have astrological and health promoting properties. It is believed that these beads can help in chakra balancing, emotional toggle and supervision of the body. Each bead has its own spiritual and astrological significance as it comes in various mukhis and corresponds to a particular need. They can be worn as malas or jewelry, they cross the borders of faiths and speak to anyone who wishes to heal and go deep within themselves.`
+    ,
+    image: 'https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200',
+
+  },{
+    title: "How to Wear Rudraksha: Spiritual and Healing Benefits",
+    discription:
+      `Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees and are believed to aid in all aspects: physically, mentally and spiritually. As described in Indian ancient texts, it is believed that wearing rudraksha beads will help in repelling evil and bring forth peace by attracting positive energy. The beads, due to their structure and composition, are useful during chanting mantras or meditating.Venturing into the metaphysical territory, rudraksha beads have astrological and health promoting properties. It is believed that these beads can help in chakra balancing, emotional toggle and supervision of the body. Each bead has its own spiritual and astrological significance as it comes in various mukhis and corresponds to a particular need. They can be worn as malas or jewelry, they cross the borders of faiths and speak to anyone who wishes to heal and go deep within themselves.`
+    ,
+    image: 'https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200',
+
+  },
+  {
+    title: "How to Wear Rudraksha: Spiritual and Healing Benefits",
+    discription:
+      `Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees and are believed to aid in all aspects: physically, mentally and spiritually. As described in Indian ancient texts, it is believed that wearing rudraksha beads will help in repelling evil and bring forth peace by attracting positive energy. The beads, due to their structure and composition, are useful during chanting mantras or meditating.Venturing into the metaphysical territory, rudraksha beads have astrological and health promoting properties. It is believed that these beads can help in chakra balancing, emotional toggle and supervision of the body. Each bead has its own spiritual and astrological significance as it comes in various mukhis and corresponds to a particular need. They can be worn as malas or jewelry, they cross the borders of faiths and speak to anyone who wishes to heal and go deep within themselves.`
+    ,
+    image: 'https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200',
+
+  },{
+    title: "How to Wear Rudraksha: Spiritual and Healing Benefits",
+    discription:
+      `Rudraksha, the holy bead adored most in hinduism, has been associated with lord shiva all through its existence and is of great cultural importance. These beads are obtained from rudraksha trees and are believed to aid in all aspects: physically, mentally and spiritually. As described in Indian ancient texts, it is believed that wearing rudraksha beads will help in repelling evil and bring forth peace by attracting positive energy. The beads, due to their structure and composition, are useful during chanting mantras or meditating.Venturing into the metaphysical territory, rudraksha beads have astrological and health promoting properties. It is believed that these beads can help in chakra balancing, emotional toggle and supervision of the body. Each bead has its own spiritual and astrological significance as it comes in various mukhis and corresponds to a particular need. They can be worn as malas or jewelry, they cross the borders of faiths and speak to anyone who wishes to heal and go deep within themselves.`
+    ,
+    image: 'https://gemsmantra.com/cdn/shop/articles/How_to_wear_rudraksha..jpg?v=1741688891&width=1200',
+
+  }]
   const navigator=useNavigate()
 
   const [openModal, setOpenModal] = useState(false);
@@ -20,37 +57,72 @@ const FactoryClips = ({Media,isLoading}) => {
   };
 
   if (isLoading) return <Loading />;
-  if (!Media) return null;
+  // if (!Media) return null;
   return (
 <div className='mb-10 px-2'>
 
-<h2 class="flex flex-row flex-nowrap py-3 md:py-10 items-center ">
-  
-          <span class="flex-none block mx-4 px-4 py-2.5 lg:text-2xl rounded leading-none uppercase font-bold  text-red">
-          our blog
+<h2 class="flex flex-row flex-nowrap items-center ">
+          <span class="flex-grow block border-t border-red"></span>
+          <span class="flex-none block mx-4 px-4 py-2.5  lg:text-xl rounded leading-none uppercase font-bold bg-red text-yellow">
+              Our Blogs
           </span>
-    
+          <span class="flex-grow block border-t border-red"></span>
       </h2>
 
-    <div className='md:mt-0 mt-3 mb-10'>
+    <div className=' mt-10 mb-10'>
       <Marquee play={true} direction={'right'} pauseOnHover={true} loop={0}>
-      {Media?.map((item, index) => (
-        <div className={`md:h-56 h-44  relative `} key={index}>
-          {item.Type ==='Image' && 
-          // <a href={`${baseUrl}/${item?.Media?.data?.attributes?.url}`} target={'_blank'}>
-          <img src={`${baseUrl}/${item?.Media?.data?.attributes?.url}`} alt="item" 
+      {blog?.map((blog, index) => (
+        <div className='sm:h-70 h-40 items-center justify-center' key={index}   
+         onClick={() => navigator("/blogcontent")}>
+     
+
+          <img src={blog.image} alt="item" 
           onClick={()=>{
-            setModalData(`${baseUrl}/${item?.Media?.data?.attributes?.url}`) 
+            setModalData(`{blog.image}`) 
           setOpenModal(true)
         }} className="mx-2 bg-red bg1 md:mx-5 md:w-96 h-full transition-all border-4 border-red rounded-md   duration-500 hover:scale-95 overflow-hidden object-cover" />
-        // </a>
-          }
-            
+     
+       
+             {/* <h3 className="text-2xl m-2 text-red font-semibold">{blog.title}</h3>
+                {console.log("Blog Discription:", blog.discription)
+                }
+                <p className="m-2">
+                  {blog.discription?.length > 350 ? blog.discription.substring(0, 350) + "..." : blog.discription}
+                </p>
+
+
+                <button className="m-2 text-red">Read More</button> */}
         </div>
       ))}
+       {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-50">
+          {
+            blog.map((blog, index) => (
+
+              <div
+                key={index}
+                className=" m-5 flex flex-col justify-center items-start"
+                onClick={() => navigator("/blogcontent")}>
+                <div>
+                  <img className=" object-cover w-0 h-40 p-2"
+                    src={blog.image} />
+                </div>
+                <h3 className="text-2xl m-2 text-red font-semibold">{blog.title}</h3>
+                {console.log("Blog Discription:", blog.discription)
+                }
+                <p className="m-2">
+                  {blog.discription?.length > 350 ? blog.discription.substring(0, 350) + "..." : blog.discription}
+                </p>
+
+
+                <button className="m-2 text-red">Read More</button>
+              </div>
+
+            ))
+          }
+        </div> */}
     </Marquee>
-    <button className='rounded bg-red text-white p-2 m-2 flex justify-center mx-auto   '
-    onClick={()=>navigator('/blog')}>View all</button>
+    {/* <button className='rounded bg-red text-white p-2 m-2 flex justify-center mx-auto   '
+    onClick={()=>navigator('/blog')}>View all</button> */}
     </div>
     {/* <div className=''> 
       <Marquee play={true} direction={'left'} pauseOnHover={true} loop={0}>

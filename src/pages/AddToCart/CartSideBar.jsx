@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading/Loading";
+import FreeDeliveryProgress from "../../components/Query";
 import {
   removeItem,
   increaseQuantity,
@@ -105,6 +106,9 @@ const CartSidebar = ({ isCartOpen, onCartClose,enableRefetch,onRefetchHandled })
         <p>Your cart is empty.</p>
       ) : (
         <ul className="overflow-y-scroll h-[70vh] md:h-[65vh] lg:h-[75vh]" >
+            
+      {/* Free Delivery Progress Bar */}
+      <FreeDeliveryProgress cartTotal={totalAmount.toFixed(2)} />
           {cart?.carts?.map((item) => (
             <li key={item.id} className="flex gap-2 mb-4 rounded-md shadow-red shadow-sm p-2" >
               <button

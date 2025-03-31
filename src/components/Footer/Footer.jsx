@@ -4,14 +4,14 @@ const Footer = () => {
 
   return (
     <footer
-      className="bg-red sm:text-center text-surface/75  lg:text-left">
+      className="bg-red  text-surface/75  lg:text-left">
 
-      <div className="mx-6 py-10 sm:text-center text-yellow md:text-left">
+      <div className="mx-6 py-10  text-yellow md:text-left">
         <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 
           <div className="text-justify">
             <h6
-              className="mb-4 flex sm:items-center sm:justify-center font-semibold uppercase md:justify-start">
+              className="mb-4 flex sm:items-center sm:justify-start font-semibold uppercase md:justify-start">
               Shivyantra
             </h6>
             <p>
@@ -21,7 +21,7 @@ const Footer = () => {
 
           <div className='flex  flex-col lg:ml-20 '>
             <h6
-              className="mb-4 flex  sm:justify-center font-semibold uppercase md:justify-start">
+              className="mb-4 flex  sm:justify-start font-semibold uppercase md:justify-start">
               Insights
             </h6>
             <p className="mb-4 hover:underline">
@@ -40,22 +40,22 @@ const Footer = () => {
           </div>
           <div className='flex  flex-col lg:ml-20'>
             <h6
-              className="mb-4 flex sm:justify-center  font-semibold uppercase md:justify-start">
+              className="mb-4 flex sm:justify-start  font-semibold uppercase md:justify-start">
               Quick Links
             </h6>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start hover:underline">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start hover:underline">
               <a href='/'>Home</a>
             </p>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start hover:underline">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start hover:underline">
               <a href='/shop'>Shop</a>
             </p>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start hover:underline">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start hover:underline">
               <a href='/blog'>Blog</a>
             </p>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start hover:underline">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start hover:underline">
               <a href='/about'>About</a>
             </p>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start  hover:underline">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start  hover:underline">
               <a href='/contact'>Contact</a>
             </p>
 
@@ -64,10 +64,10 @@ const Footer = () => {
 
           <div>
             <h6
-              className="mb-4 flex sm:justify-center  font-semibold uppercase md:justify-start">
+              className="mb-4 flex sm:justify-start  font-semibold uppercase md:justify-start">
               Address
             </h6>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start">
               <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ const Footer = () => {
               242A, Arcot Rd, Vadapalani,
               Chennai - 600026 (Near Vadapalani Post Office)
             </p>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start">
               <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ const Footer = () => {
                 info@shriworks.com
               </a>
             </p>
-            <p className="mb-4 flex items-center sm:justify-center md:justify-start">
+            <p className="mb-4 flex items-center sm:justify-start md:justify-start">
               <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -115,8 +115,8 @@ const Footer = () => {
               </a>
             </p>
 
-          <div className='mb-4 flex items-center sm:justify-center md:justify-start'>
-            <div className="flex p-2 sm:justify-center bg-white w-fit rounded-lg ">
+          <div className='mb-4 flex items-center sm:justify-start md:justify-start'>
+            <div className="flex p-2 sm:justify-start bg-white w-fit rounded-lg ">
               <a href="https://www.facebook.com/shriworks" target={'_blank'} className="mx-2 [&>svg]:h-4 [&>svg]:w-4 vibrate-1 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -174,13 +174,13 @@ const Footer = () => {
 
       <hr className='mx-[5%] border-yellow opacity-25 ' />
       <div className="text-yellow p-6 mx-[5%] text-center flex justify-between">
-        <div>
-          <span className='opacity-50'>© 2024 Copyright : </span>
-          <a className="font-semibold uppercase hover:underline  hover:decoration-double" target='_blank' href="https://shriworks.com/">Shivyantra</a>
+        <div className=''>
+          <span className='opacity-50 text-md'>© 2024 Copyright : </span>
+          <a className="font-semibold uppercase hover:underline text-sm hover:decoration-double" target='_blank' href="https://shriworks.com/">Shivyantra</a>
         </div>
-        <div>
-          <span className='opacity-50'>Developed by : </span>
-          <a className="font-semibold uppercase hover:underline  hover:decoration-double" target='_blank' href="https://www.jgntechnologies.com/"
+        <div className=''>
+          <span className='opacity-50 text-md'>Developed by : </span>
+          <a className="font-semibold uppercase hover:underline text-sm hover:decoration-double" target='_blank' href="https://www.jgntechnologies.com/"
           >JGN TECHNOLOGIES</a>
         </div>
       </div>

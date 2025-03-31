@@ -30,7 +30,7 @@ object-fit: cover;
   .custom-arrow {
     position: absolute;
     z-index: 1;
-    background: #391818;
+    background: #993d00;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -39,14 +39,14 @@ object-fit: cover;
   
   .up-arrow {
     top: 0;
-    color: #FFEEA9;
+    color: rgb(248, 92, 20);
     font-weight: bold;
     font-size: large;
   }
   
   .down-arrow {
     bottom: 0;
-    color: #FFEEA9;
+    color: white;
     font-weight: bold;
     font-size: large;
   }

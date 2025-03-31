@@ -35,16 +35,6 @@ const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortC
     }));
   };
 
-  // const clearFilters = () => {
-  //   setSortCategory("Default");
-  //   setSelectedFilters({
-  //     material: "",
-  //     price: "",
-  //     category: "",
-  //     search: ""
-  //   });
-  //   navigate('/shop');
-  // };
 
   const { data: Category } = useQuery('NavCategory', async () => {
     const res = await api.get(`api/categories?populate=*`);
@@ -53,11 +43,11 @@ const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortC
 
   return (
     <>
-      <section className="bg-white  p-4">
+      <section className="bg-white ">
        
         <div className="mb-5">
 
-          <p className="text-black text-left font-bold text-xl">Filter By Price </p>
+          <p className="text-red text-left font-semibold text-xl">Filter By Price </p>
           <PriceRange
 
             onChange={(range) => {
@@ -67,7 +57,7 @@ const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortC
 
         </div>
         <div className="">
-          <h2 className="text-xl font-bold ">Categories</h2>
+          <h2 className="text-red text-xl font-semibold ">Categories</h2>
           <ul>
 
             {Array.isArray(Category) ? (
@@ -95,16 +85,14 @@ const FilterBar = ({ selectedFilters, setSelectedFilters, selectedSort, setSortC
                       )}
                     </button>
                     {openCategory === category?.attributes?.CategoryName && (
-                    <ul className="ml-4 mt-2">
-                     {category?.attributes?.subcategories?.data?.map((subcategory, subIndex) => (
-                      <li key={subIndex} className="p-1 text-red hover:text-black cursor-pointer">
-                        
-                        <button
-                    onClick={() => handleFilterSelection('subcategory', subcategory?.attributes?.text)}
-                    className="text-black "
-                  >
-                  {subcategory?.attributes?.text}
-                  </button>
+                      <ul className="ml-4 mt-2">
+                        {category?.attributes?.subcategories?.data?.map((subcategory, subIndex) => (
+                          <li className="py-1 hover:text-red text-black cursor-pointer">
+                            <Link
+                              key={subIndex}
+                              to={`/shop?subcategory=${encodeURIComponent(subcategory?.attributes?.text)}`}>
+                              {subcategory?.attributes?.text}
+                            </Link>
                         </li>
                       ))}
                     </ul>

@@ -546,6 +546,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <RelatedProducts category={category} id={products?.id} material={products?.attributes?.Material} />
+        
       </section>
     </>
   );

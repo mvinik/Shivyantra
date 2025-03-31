@@ -23,7 +23,6 @@ const RelatedProducts = (props) => {
   }
   );
 
-
   const products = Array.isArray(productsData) ? productsData : [];
 //  console.log(products,'products')
   const relatedProduct = products.filter(product=>{
@@ -40,11 +39,7 @@ const RelatedProducts = (props) => {
     }
   })
 
-
   // console.log(relatedProduct,'Relatedd Product')
-
-
-
     const NextArrow = (props) => {
         const { onClick } = props;
         return (

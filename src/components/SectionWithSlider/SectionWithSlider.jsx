@@ -101,14 +101,13 @@ const Section = SectionData;
   return (
     <>
     {Section?.map((section,index)=>(
-    <div className="py-2 z- md:pt-10 overflow-hidden" key={index}>
-
-          <h2 class="flex flex-row flex-nowrap items-center ">
-
-          <span class="flex-none block mx-4 px-4 py-2.5 font-semibold lg:text-2xl rounded leading-none uppercase  text-red">
+    <div className="py-5  md:pt-10 overflow-hidden" key={index}>
+     <h2 class="flex flex-row flex-nowrap items-center ">
+          <span class="flex-grow block border-t border-red"></span>
+          <span class="flex-none block mx-4 px-4 py-2.5  lg:text-xl rounded leading-none uppercase font-bold bg-red text-yellow">
               {section.Title}
           </span>
-          
+          <span class="flex-grow block border-t border-red"></span>
       </h2>
 
       <div className='sm:px-16 md:pt-10 z-50 pt-3 gap-4' >

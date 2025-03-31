@@ -20,17 +20,24 @@ import ReplacementPolicy from './pages/Insights/ReplacementPolicy';
 import ShippingPolicy from './pages/Insights/ShippingPolicy';
 import StrategicVision from './pages/Insights/StrategicVision';
 import Login from './pages/Auth/Login';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ForgetPassword from './pages/Auth/ForgetPassword';
 import OrderSuccess from './pages/AddToCart/OrderSuccess';
 import TopSlider from './components/TopNav/TopSlider';
 import Query from './components/Query';
 import ScrollToTop from './components/Button/Button';
 import BlogContent from './pages/Blog/BlogContent';
+import { useLocation } from 'react-router-dom';
 const client = new QueryClient();
 
 function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const location=useLocation();
+
+  useEffect(()=>{
+    window.scrollTo(0,0);
+
+  },[location])
 
   // Function to open the login modal
   const openLoginModal = () => {
@@ -48,6 +55,8 @@ function App() {
     <QueryClientProvider client={client}>
         <ToastContainer/>
         <TopSlider/>
+       
+
         <TopNav />
         <Navbar />
         <Routes>

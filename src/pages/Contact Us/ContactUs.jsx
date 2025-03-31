@@ -41,24 +41,24 @@ const handleSubmit = async (e) => {
 };
   return (
     <section className="" id="contact">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-10">
           <div className="mb-4">
             <div className="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
-              <h1 className="text-base font-semibold uppercase tracking-wide text-gray ">
+              <h1 className="text-base font-semibold uppercase tracking-wider text-black ">
                 Contact
               </h1>
-              <h2 className="font-heading mb-4 font-bold tracking-tight text-[#545453]  text-3xl sm:text-5xl">
+              <h2 className="font-heading mb-4 font-bold tracking-tight text-red  text-3xl sm:text-5xl">
                 Get in Touch
               </h2>
-              <p className="mx-auto mt-4 max-w-3xl text-xl text-gray  ">
+              <p className="mx-auto mt-4 max-w-3xl text-xl text-black  ">
                 Get in touch with us to buy your products 
                 today
               </p>
             </div>
           </div>
-          <div className='flex justify-center'>
+          {/* <div className='flex justify-center'>
           <div className=" h-fit w-full p-5 md:p-12" id="form">
-                <h2 className="mb-4 text-2xl font-bold text-gray">
+                <h2 className="mb-4 text-2xl font-bold text-black">
                   Ready to Get Started?
                 </h2>
                 <form id="contactForm">
@@ -74,7 +74,7 @@ const handleSubmit = async (e) => {
                           id="name"
                           autocomplete="given-name"
                           placeholder="Your name"
-                          className="mb-2 w-full bg-white rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray sm:mb-0"
+                          className="mb-2 w-full bg-white rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-black sm:mb-0"
                           name="name"
                           onChange={(e)=>setName(e.target.value)}
                         />
@@ -87,7 +87,7 @@ const handleSubmit = async (e) => {
                         <input
                           type="email"
                           placeholder="Your email address"
-                          className="mb-2 w-full rounded-md border bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray sm:mb-0"
+                          className="mb-2 w-full rounded-md border bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-black sm:mb-0"
                           name="email"
                           onChange={(e) => setEmail(e.target.value)} 
                         />
@@ -104,24 +104,24 @@ const handleSubmit = async (e) => {
                         cols="30"
                         rows="5"
                         placeholder="Write your message..."
-                        className="mb-2 w-full rounded-md border active:border-gold bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray sm:mb-0"
+                        className="mb-2 w-full rounded-md border active:border-gold bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-black sm:mb-0"
                         onChange={(e)=>setMessage(e.target.value)}
                       ></textarea>
                     </div>
                   </div>
                   <div className="text-center">
-                    <button onClick={handleSubmit} className="SliderButton w-full text-white cursor-pointer uppercase bg-red px-4 py-1 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#4e2a1b,-0.5rem_-0.5rem_#4e2a1b] hover:bg-yellow hover:text-gray transition">
+                    <button onClick={handleSubmit} className="SliderButton w-full text-white cursor-pointer uppercase bg-red px-4 py-2 rounded hover:bg-opacity-90 hover:text-black transition">
                       Send message
                     </button>
                   </div>
                 </form>
               </div>
-          </div>
-          {/* <div className="flex items-stretch justify-center">
+          </div> */}
+          <div className="flex items-stretch justify-center">
             <div className="grid md:grid-cols-2">
-              <div className="h-full pr-6">
-                <p className="mt-3 mb-12 text-lg text-justify sm:text-left text-black opacity-80 ">
-                  At shriworks, our contact support team is here to assist you
+              <div className="h-full p-5 md:p-12">
+                <p className=" mb-12 text-lg text-justify sm:text-left text-black opacity-80 ">
+                  At shivyantra, our contact support team is here to assist you
                   with any questions or planning needs. Reach out to us for
                   prompt and personalized service to ensure your event's
                   success.
@@ -149,10 +149,10 @@ const handleSubmit = async (e) => {
                       <h3 className="mb-2 text-lg font-bold leading-6 text-black">
                         Our Address
                       </h3>
-                      <p className="text-gray opacity-90">
+                      <p className="text-black opacity-90">
                         242A, Arcot Rd, Vadapalani,
                       </p>
-                      <p className="text-gray opacity-90">
+                      <p className="text-black opacity-90">
                         Chennai, Tamil Nadu 600026.<br/>(Near Vadapalani Post Office)
                       </p>
                     </div>
@@ -180,10 +180,10 @@ const handleSubmit = async (e) => {
                       <h3 className="mb-2 text-lg font-bold leading-6 text-black">
                         Contact
                       </h3>
-                      <p className="text-gray opacity-90 ">
+                      <p className="text-black opacity-90 ">
                         Mobile: (+91) 91765 54626
                       </p>
-                      <p className="text-gray opacity-90 ">
+                      <p className="text-black opacity-90 ">
                         Mail: Info@shriworks.com
                       </p>
                     </div>
@@ -210,10 +210,10 @@ const handleSubmit = async (e) => {
                       <h3 className="mb-2 text-lg font-bold leading-6 text-black">
                         Working hours
                       </h3>
-                      <p className="text-gray opacity-90 ">
+                      <p className="text-black opacity-90 ">
                         Monday - Saturday: 10:00 AM - 8:30 PM
                       </p>
-                      <p className="text-gray opacity-90 ">
+                      <p className="text-black opacity-90 ">
                         Sunday: 10:00 AM - 2:30 PM
                       </p>
                     </div>
@@ -237,7 +237,7 @@ const handleSubmit = async (e) => {
                           id="name"
                           autocomplete="given-name"
                           placeholder="Your name"
-                          className="mb-2 w-full bg-white rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray sm:mb-0"
+                          className="mb-2 w-full bg-white rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md text-black sm:mb-0"
                           name="name"
                           onChange={(e)=>setName(e.target.value)}
                         />
@@ -250,7 +250,7 @@ const handleSubmit = async (e) => {
                         <input
                           type="email"
                           placeholder="Your email address"
-                          className="mb-2 w-full rounded-md border bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray sm:mb-0"
+                          className="mb-2 w-full rounded-md border bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-black sm:mb-0"
                           name="email"
                           onChange={(e) => setEmail(e.target.value)} 
                         />
@@ -267,23 +267,23 @@ const handleSubmit = async (e) => {
                         cols="30"
                         rows="5"
                         placeholder="Write your message..."
-                        className="mb-2 w-full rounded-md border active:border-gold bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-gray sm:mb-0"
+                        className="mb-2 w-full rounded-md border active:border-gold bg-white border-gray-400 py-2 pl-2 pr-4 shadow-md text-black sm:mb-0"
                         onChange={(e)=>setMessage(e.target.value)}
                       ></textarea>
                     </div>
                   </div>
                   <div className="text-center">
-                    <button onClick={handleSubmit} className="SliderButton w-full text-yellow cursor-pointer uppercase bg-red px-4 py-1 active:translate-x-0.5 active:translate-y-0.5 hover:shadow-[0.5rem_0.5rem_#4e2a1b,-0.5rem_-0.5rem_#4e2a1b] hover:bg-yellow hover:text-gray transition">
+                    <button onClick={handleSubmit} className="SliderButton w-full text-white text-semibold cursor-pointer uppercase bg-red px-4 py-2 rounded  hover:bg-opacity-70 hover:text-black transition">
                       Send message
                     </button>
                   </div>
                 </form>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.760930752891!2d80.21251457439841!3d13.050883713136447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526728b5e8b715%3A0xf462cd326408c3c5!2sShri%20Works!5e0!3m2!1sen!2sin!4v1724408940206!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.7610711104744!2d80.21254447575778!3d13.050874787271859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267f622160271%3A0x3149fc03560d447!2sJGN%20Technologies!5e0!3m2!1sen!2sin!4v1743079683877!5m2!1sen!2sin"
           width="100%"
           height="400"
           style={{ padding: "0px 40px 60px 40px" }}

@@ -13,6 +13,8 @@ import Testimonials from '../../components/Testimonials/Testimonials'
 import api from '../../Utils/api'
 import CartSideBar from '../AddToCart/CartSideBar'
 import TechError from '../Error/TechError'
+import Blog from '../Blog/Blog'
+import BlogContent from '../Blog/BlogContent'
 
 const Home = () => {
 
@@ -54,6 +56,7 @@ const Home = () => {
     return res.data.data;
   })
 
+
   const {data:Test } = useQuery('Test', async()=>{
     const res = await api.get('/api/testimonials?populate=*')
     console.log(res.data.data,'test')
@@ -71,10 +74,12 @@ const Home = () => {
       <HomeSlider sliderData={SliderData}/>
       <CategorySlider CategoryData={CategoryData} />
       <SectionWithSlider SectionData={SectionData?.attributes?.Section}/>
-      <FactoryClips Media={Media?.attributes?.FactoryClips} isLoading={isLoading}/>
-      {/* <Testimonials Test={Test} /> */}
+      <FactoryClips Media={Media?.attributes?.FactoryClips} isLoading={isLoading} />
+     <Testimonials Test={Test} /> 
       <CartSideBar isCartOpen={isCartOpen} onCartClose={()=>setIsCartOpen(false)} />
+        
     </div>
+    
     </>
   )
 }

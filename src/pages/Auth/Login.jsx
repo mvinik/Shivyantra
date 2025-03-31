@@ -277,7 +277,7 @@ const Login = ({ setIsOpen, modalIsOpen }) => {
       ariaHideApp={false}
     >
       {!isLogin ? (
-   <div className="bg-white shadow-2xl flex flex-col items-center w-full max-w-[90%] sm:max-w-[400px] lg:w-[350px] mx-auto p-6 rounded-md">
+   <div className="bg-white flex flex-col items-center w-full max-w-[90%] sm:max-w-[400px] lg:w-[350px] mx-auto p-6 rounded-md">
   
    <form onSubmit={handleLogin} className="flex flex-col w-[225px]  gap-4">
      <h2 className="text-2xl text-red uppercase text-center font-bold">Login</h2>
@@ -331,20 +331,19 @@ const Login = ({ setIsOpen, modalIsOpen }) => {
        >
          Login
        </button>
-       <button
-         type="button"
-         className="w-full bg-gray-200 text-black py-2 text-sm rounded-md shadow-md hover:bg-white transition"
+       <p
+        className="text-center text-black text-sm"
          onClick={() => setIsLogin(true)}
        >
-         Don't have an account? <span className="text-red hover:underline">Register</span>
-       </button>
+         Don't have an account? <span className="text-red font-bold cursor-pointer hover:underline">Register</span>
+       </p>
      </div>
    </form>
  </div>
  
       
       ) : (
-        <div className="bg-white shadow-2xl flex flex-col items-center w-full max-w-[90%] lg:w-[400px] mx-auto p-6 rounded-md">
+        <div className="bg-white  flex flex-col items-center w-full max-w-[90%] lg:w-[400px] mx-auto p-6 rounded-md">
   
         {!userConfirmed ? (
           <form className="flex flex-col w-[225px]  gap-4">

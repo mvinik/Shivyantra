@@ -57,7 +57,7 @@ const TopNav = () => {
   const user = localStorage.getItem('UserName');
   console.log(user,'user')
    
-
+console.log()
   const { data: Cate } = useQuery("TopNavCategory", async () => {
     const res = await api.get(
       `api/categories?populate=*`
@@ -314,7 +314,7 @@ const TopNav = () => {
                             <a
                               onClick={() => { close() }}
                               href={'/profile'}
-                              className={`block px-4 py-2 font-bold text-md  text-red ${active ? "bg-red text-white" : ""
+                              className={`block px-4 py-2 font-bold text-md text-black  ${active ? " text-red" : ""
                                 }`}
                             >
 
@@ -327,7 +327,7 @@ const TopNav = () => {
                           {({ active, close }) => (
                             <a
                               href="#"
-                              className={`block px-4 py-2 font-bold text-md text-red ${active ? "bg-red  text-white" : ""
+                              className={`block px-4 py-2 font-bold text-md text-black ${active ? "  text-red" : ""
                                 }`}
                               onClick={() => {
                                 handleLogout();
@@ -434,7 +434,7 @@ const TopNav = () => {
                         {Array.isArray(Cate) ? (
                           Cate.map((category, index) => (
                             <a
-                              className="hover:text-red "
+                              className="hover:text-red p-2"
                               key={index}
                               onClick={() => {
                                 handleMenuItemClick(category?.attributes?.CategoryName);

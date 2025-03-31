@@ -2,7 +2,6 @@
     width: 100%;
     margin: auto;
     text-align: center;
-    
     z-index: 9999999;
   }
   
@@ -14,7 +13,7 @@
   }
   
   .range-values input {
-    width: 70px;
+
     text-align: center;
     background-color:#ffffff ;
     color: #0f0f0f;
@@ -23,7 +22,8 @@
   }
   
   .slider-container {
-    margin: 30px 10px;
+    
+    margin: 35px 0px;
     display: flex;
     justify-content: center;
     align-items: center;

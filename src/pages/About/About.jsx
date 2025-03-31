@@ -10,14 +10,14 @@ const About = () => {
           style={{ backgroundImage: "url('https://rudralife.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbanner.6dc5124a.jpg&w=1920&q=75')" }}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 flex  m-10 justify-start ">
-            <h1 className="text-white text-3xl md:text-4xl text-start mt-60  font-bold">
-              About Us
-            </h1>
-          </div>
+          <div className="absolute inset-0-x bottom-1 md:bottom-5   flex items-center justify-start p-4 md:p-10">
+  <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+    About Us
+  </h1>
+</div>
         </div>
 
-        <div className='text-black text-md leading-7 m-10'>
+        <div className='text-black text-md leading-7 md:m-10 m-5'>
           <ul>
             <li>
               An organization was established 18 years ago, to educate, promote and supply the best quality of Nepal Rudraksha. It went on to establish a grand global presence by becoming the world's leading organization in this field. Rudralife is an authority in the field of Rudraksha. Slowly but surely they became the most discussed organization in print and electronic media. They are recognized as a leading brand with 4 registered trademark products. All the Rudraksha supplied by them are genuine and are subjected to the best quality checks in the market. They are certified by an ISO 9001:2015 accredited laboratory, that adheres to total quality management principles to achieve a zero defect approach while supplying Rudraksha.
@@ -40,7 +40,7 @@ const About = () => {
 
       </section>
       {/* Mission Section */}
-      <div className="m-10">
+      <div className="m-5 md:m-10">
       <h4 className="md:text-2xl font-bold text-red py-2 mb-4 uppercase text-start">
         Mission
       </h4>
