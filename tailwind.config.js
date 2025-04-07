@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        red: '#993d00',
+        red: '#094680',
         yellow: '#ffffff',
         white: '#FFFFFF',
         // black: '#560000',
@@ -14,7 +14,7 @@ module.exports = {
          amber:'#391818',
          orange:'#A0650E',
         //  gray:'#4a4a4a'
-           gray:'#292929'
+           gray:'#BEBEBE'
       },
       backgroundImage:{
         'Pattern':"url('/public/Assests/homeBg.jpg')",

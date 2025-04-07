@@ -59,7 +59,7 @@ const RelatedProducts = (props) => {
           </div>
         );
       };
-    
+     
       const PrevArrow = (props) => {
         const { onClick } = props;
         return (

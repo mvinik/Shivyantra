@@ -23,7 +23,7 @@ const PriceRange = ({ onChange, onConfirm }) => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-start ml-2'>
+    <div className='flex flex-col items-center justify-start '>
       <div className="price-range-picker">
 
         <ReactSlider

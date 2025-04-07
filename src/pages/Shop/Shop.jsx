@@ -13,6 +13,7 @@ import PriceRange from '../../Utils/PriceRange/PriceRange';
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { useNavigate } from 'react-router-dom';
+
 const Shop = () => {
   const navigate = useNavigate();
   const { search } = useLocation();
@@ -23,7 +24,7 @@ const Shop = () => {
   // console.log(subcategoryFromQuery,'subcategoryFromQuery')
   const [openCategory, setOpenCategory] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
   const toggleCategory = (categoryName) => {
     setOpenCategory(openCategory === categoryName ? null : categoryName);
   };
@@ -48,26 +49,26 @@ const Shop = () => {
 
   const fetchProducts = async ({ pageParam = 1 }) => {
     const filters = {
-      ...(selectedFilters.material && { 'filters[Material]': selectedFilters.material }),
-      ...(selectedFilters.category && { 'filters[category][CategoryName]': selectedFilters.category }),
-      ...(selectedFilters.subcategory && { 'filters[category][subcategories][text]': selectedFilters.subcategory }),
-      ...(selectedFilters.price && {
-        'filters[Price][$gte]': selectedFilters.price[0],
-        'filters[Price][$lte]': selectedFilters.price[1],
-      }),
-      // ...(searchFromQuery && { 'filters[ProductName][$containsi]': searchFromQuery }),
-
       // ...(selectedFilters.material && { 'filters[Material]': selectedFilters.material }),
+      // ...(selectedFilters.category && { 'filters[category][CategoryName]': selectedFilters.category }),
+      // ...(selectedFilters.subcategory && { 'filters[category][subcategories][text]': selectedFilters.subcategory }),
       // ...(selectedFilters.price && {
       //   'filters[Price][$gte]': selectedFilters.price[0],
       //   'filters[Price][$lte]': selectedFilters.price[1],
       // }),
-      // ...(searchFromQuery && { 'filters[ProductName][$containsi]': searchFromQuery }),
+      ...(searchFromQuery && { 'filters[ProductName][$containsi]': searchFromQuery }),
 
-      // Handle category and subcategory
+      ...(selectedFilters.material && { 'filters[Material]': selectedFilters.material }),
+      ...(selectedFilters.price && {
+        'filters[Price][$gte]': selectedFilters.price[0],
+        'filters[Price][$lte]': selectedFilters.price[1],
+      }),
+      ...(searchFromQuery && { 'filters[ProductName][$containsi]': searchFromQuery }),
+
+   
       // ...(selectedFilters.category && { 'filters[category][CategoryName]': selectedFilters.category }),
       // ...(selectedFilters.subcategory && { 'filters[subcategories][text]': selectedFilters.subcategory }),
-      // ...(selectedFilters.subcategory ?(selectedFilters.subcategory && { 'filters[subcategories][text]': selectedFilters.subcategory }):(selectedFilters.category && { 'filters[categories][CategoryName]': selectedFilters.category })),
+      ...(selectedFilters.subcategory ?(selectedFilters.subcategory && { 'filters[subcategories][text]': selectedFilters.subcategory }):(selectedFilters.category && { 'filters[categories][CategoryName]': selectedFilters.category })),
 
     };
 
@@ -181,11 +182,11 @@ const Shop = () => {
         </div>
 
         {/* Sort By Section */}
-        <div className="flex items-center gap-2 sm:gap-4 justify-between m-2 text-red ml-auto ">
-          <h3 className="text-lg font-semibold">Sort By:</h3>
+        <div className="flex items-center gap-2 justify-between m-2 text-red ml-auto px-4 sm:px-6 md:px-8">
+          <h3 className="text-sm font-medium">Sort By:</h3>
           <Menu as="div" className="relative inline-block">
             <div>
-              <MenuButton className="flex border border-rd items-center w-full justify-center rounded-sm shadow-sm bg-white p-1 font-semibold text-red">
+              <MenuButton className="flex border border-rd items-center w-full justify-center rounded-sm shadow-sm bg-white px-1 font-medium text-sm text-red">
                 {selectedSort}
                 <ChevronDownIcon
                   aria-hidden="true"
@@ -227,7 +228,7 @@ const Shop = () => {
       </div>
 
 
-      <section className='flex mt-5 sm:flex-col lg:flex-row'>
+      <section className='flex m-5 sm:flex-col lg:flex-row'>
 
         <div  >
           <aside className={`fixed inset-y-0 left-0 w-64  bg-white p-4 shadow-lg transform z-50 
@@ -246,7 +247,8 @@ const Shop = () => {
           </aside>
           {isMenuOpen && (
             <div
-              className="fixed inset-0 bg-red opacity-50 z-40"
+             className="fixed inset-0 bg-gray opacity-70 z-40"
+              // className="fixed inset-0 bg-red opacity-50 z-40"
               onClick={() => setIsMenuOpen(false)}
             />
           )}
@@ -320,7 +322,7 @@ const Shop = () => {
                           {({ active }) => (
                             <a
                               href="#"
-                              className={`block px-4 py-2 text-sm text-black ${active ? "bg-red translate-x-1 transition-all duration-300 text-white" : ""
+                              className={`block px-4 py-2 text-md sm:text-sm text-black ${active ? "text-red translate-x-1 transition-all duration-300 " : ""
                                 }`}
                               onClick={() => handleMenuItemClick(option)}
                             >

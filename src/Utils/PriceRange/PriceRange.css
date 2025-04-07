@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
     height: 4px;
-    background:#FF5900;
+    background:#094680;
     color:white;
     border-radius: 5px;
     
@@ -37,7 +37,7 @@
   .thumb {
     width: 2px;  /* Set width for rectangle */
     height: 30px; /* Set height for rectangle */
-    background-color: #FF5900;
+    background-color: #094680;
     border:none;
     padding:5px;
     cursor: pointer;

@@ -237,18 +237,18 @@ const {data:cart, isError} = useQuery('getCart',async() =>{
         <h2 className="text-2xl font-bold text-red mt-8 ml-3">Your Order</h2>
           <div className="px-4 py-8 sm:overflow-auto  space-y-4">
             {cart?.carts?.map((cart, index) => (
-              <div className="flex items-start gap-4 border-b-2 rounded-md border-red border-opacity-60" key={index}>
+              <div className="flex items-start gap-4 p-2 border-b-2 rounded-md border-red border-opacity-60" key={index}>
                 <div className="w-32 h-28 max-lg:w-24 max-lg:h-24 flex p-2 bg3 mb-2 shrink-0 bg-white rounded-md">
                   <img src={`${baseUrl}${cart.product?.ProductImage?.[0]?.url}`} className="w-full object-cover" />
                 </div>
-                <div className="w-full overflow-hidden">
-                  <h3 className="text-base text-blackfont-bold uppercase truncate">{cart?.product?.ProductName}</h3>
+                <div className="w-full overflow-hidden items-center justify-center">
+                  <h3 className="md:text-base text-black font-bold uppercase text-sm truncate">{cart?.product?.ProductName}</h3>
                   <ul className="text-xs text-black space-y-2 mt-2">
-                    <li className="flex flex-wrap text-lg gap-4">Quantity <span className="ml-auto text-black">{cart?.Quantity}</span></li>
+                    <li className="flex flex-wrap md:text-lg text-sm gap-4">Quantity <span className="ml-auto text-black">{cart?.Quantity}</span></li>
                     {cart?.product?.Offer ? (
-                      <li className="flex flex-wrap gap-4">Total Price <span className="ml-auto text-black">&#8377; {Number((cart?.product?.Price - ((cart.product?.Offer/100) * cart.product?.Price)))*(cart?.Quantity)}</span></li>
+                      <li className="flex flex-wrap md:text-lg text-sm gap-4">Total Price <span className="ml-auto text-black">&#8377; {Number((cart?.product?.Price - ((cart.product?.Offer/100) * cart.product?.Price)))*(cart?.Quantity)}</span></li>
                       ):(
-                        <li className="flex flex-wrap text-lg gap-4">Total Price <span className="ml-auto text-black">&#8377; {Number(cart?.product?.Price)*(cart?.Quantity)}</span></li>
+                        <li className="flex flex-wrap md:text-lg text-sm gap-4">Total Price <span className="ml-auto text-black">&#8377; {Number(cart?.product?.Price)*(cart?.Quantity)}</span></li>
                     )}
                   </ul>
                 </div>
@@ -256,10 +256,10 @@ const {data:cart, isError} = useQuery('getCart',async() =>{
             ))}
           </div>
           <div className=" w-full p-4">
-            <h4 className="flex flex-wrap gap-4 text-base text-gray ">Total <span className="ml-auto ">&#8377; {totalAmount?.toFixed(2)}</span></h4>
+            <h4 className="flex flex-wrap gap-4 text-base text-black ">Total <span className="ml-auto ">&#8377; {totalAmount?.toFixed(2)}</span></h4>
             {/* <h4 className="flex flex-wrap gap-4 text-base text-red">GST ({GST}%) <span className="ml-auto ">+ &#8377; {((GST/100)*totalAmount)?.toFixed(2)}</span></h4> */}
-            <h4 className="flex flex-wrap gap-4   pt-3 text-gray font-bold">Choose a State to know your delivery fee:</h4>
-            <div className="flex flex-row gap-4 justify-center items-center text-gray ">
+            <h4 className="flex flex-wrap gap-4   pt-3 text-black font-bold">Choose a State to know your delivery fee:</h4>
+            <div className="flex flex-row gap-4 justify-center items-center text-black ">
               <span className='flex md:flex-row  md:items-center flex-col md:gap-2'>
               Delivery Fee
               <div className='flex items-center gap-1' >
@@ -284,8 +284,8 @@ const {data:cart, isError} = useQuery('getCart',async() =>{
               </span>
                   {state ? <span className="ml-auto "> + &#8377; {(Number(Delivery) || 0).toFixed(2)} </span> :  <span className="ml-auto flex justify-center text-justify h-12 font-bold uppercase text-[12px] "> </span>}
               </div>
-            <hr className='border-gray'/>
-            <h4 className="flex flex-wrap items-center text-xl mt-2 gap-4 font-extrabold text-gray">Grand Total  <span className="ml-auto text-black  font-extrabold ">&#8377; { (totalAmount + Number(Delivery)).toFixed(2)}</span> </h4>
+            <hr className='border-red border-opacity-60'/>
+            <h4 className="flex flex-wrap items-center text-xl mt-2 gap-4 font-extrabold text-black">Grand Total  <span className="ml-auto text-black  font-extrabold ">&#8377; { (totalAmount + Number(Delivery)).toFixed(2)}</span> </h4>
           </div>
         </div>
 
@@ -293,7 +293,7 @@ const {data:cart, isError} = useQuery('getCart',async() =>{
           <h2 className="text-2xl font-bold text-red">Complete your order</h2>
           <form className="mt-8" >
             <div>
-              <h3 className="text-base text-gray mb-4">Personal Details <span className='text-[#F72C5B] text-lg'>*</span></h3>
+              <h3 className="text-base text-black mb-4">Personal Details <span className='text-[#F72C5B] text-lg'>*</span></h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="px-4 py-3 bg-white text-black w-full text-sm rounded-md focus:outline-black" />
@@ -318,7 +318,7 @@ const {data:cart, isError} = useQuery('getCart',async() =>{
             </div>
 
             <div className="mt-8">
-              <h3 className="text-base text-gray  mb-4">Shipping Address <span className='text-[#F72C5B] text-lg'>*</span></h3>
+              <h3 className="text-base text-black  mb-4">Shipping Address <span className='text-[#F72C5B] text-lg'>*</span></h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <input type="text" placeholder="Address Line" value={address} onChange={(e) => setAddress(e.target.value)} className="px-4 py-3 bg-white text-black w-full text-sm rounded-md focus:outline-black" />

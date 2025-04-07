@@ -44,7 +44,7 @@ const HomeSlider = ({sliderData}) => {
   showThumbs={false}
   showStatus={false}
   swipeable={true}
-  className="custom-slider bg1 bg-red"
+  className="custom-slider"
 >
   {slider?.map((images, index) => (
     <div className="" key={index}>

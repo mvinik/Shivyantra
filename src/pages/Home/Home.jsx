@@ -15,6 +15,7 @@ import CartSideBar from '../AddToCart/CartSideBar'
 import TechError from '../Error/TechError'
 import Blog from '../Blog/Blog'
 import BlogContent from '../Blog/BlogContent'
+import FAQ from '../../components/FAQ/FAQ'
 
 const Home = () => {
 
@@ -75,6 +76,7 @@ const Home = () => {
       <CategorySlider CategoryData={CategoryData} />
       <SectionWithSlider SectionData={SectionData?.attributes?.Section}/>
       <FactoryClips Media={Media?.attributes?.FactoryClips} isLoading={isLoading} />
+      <FAQ/>
      <Testimonials Test={Test} /> 
       <CartSideBar isCartOpen={isCartOpen} onCartClose={()=>setIsCartOpen(false)} />
         

@@ -22,7 +22,7 @@ const UserProfile = () => {
 
   if(isLoading) return <Loading/>;
 
-  console.log(Invoice,'Invoice');
+  // console.log(Invoice,'Invoice');
 
   return (
     <div className="profile-page max-w-4xl mx-auto p-8">
@@ -75,7 +75,7 @@ const UserProfile = () => {
           </ul>
         ):(
           <div className='flex flex-col items-center justify-center'>
-          <FaceFrownIcon color='#FF5900' height={80}  />
+          <FaceFrownIcon color='#094680' height={80}  />
         <h3 className="text-black text-2xl text-center ">No Invoices Found</h3>
         </div>
         )}

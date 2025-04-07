@@ -84,6 +84,7 @@ const AddToCart = () => {
       queryClient.invalidateQueries('getCart');
     } catch (error) {
       console.log(error)
+      toast.error('Failed to remove item from cart');
     }
   }
 
@@ -97,7 +98,7 @@ const AddToCart = () => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke="#4e2a1b"
+          stroke="#094680"
           className="size-52"
         >
           <path
@@ -212,7 +213,7 @@ const AddToCart = () => {
     </div>  */}
 <div className="p-4 mt-5">
 <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
-      <FreeDeliveryProgress cartTotal={totalAmount.toFixed(2)} />
+      {/* <FreeDeliveryProgress cartTotal={totalAmount.toFixed(2)} /> */}
   {/* Large view Table */}
   <div className="hidden md:block overflow-hidden  ">
   <table className="w-full border-collapse ">

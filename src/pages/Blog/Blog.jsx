@@ -4,7 +4,9 @@ import api from "../../Utils/api";
 import Loading from "../../components/Loading/Loading"
 import { useLocation, useNavigate } from "react-router-dom";
 const baseUrl = api.defaults.baseURL;
+
 const Blog = ()=>{ 
+  
     //blog data
     const blog = [{
       title: "How to Wear Rudraksha: Spiritual and Healing Benefits",
@@ -74,8 +76,7 @@ const Blog = ()=>{
                     src={blog.image} />
                 </div>
                 <h3 className="text-2xl m-2 text-red font-semibold">{blog.title}</h3>
-                {console.log("Blog Discription:", blog.discription)
-                }
+                {/* {console.log("Blog Discription:", blog.discription)} */}
                 <p className="m-2">
                   {blog.discription?.length > 350 ? blog.discription.substring(0, 350) + "..." : blog.discription}
                 </p>
@@ -87,6 +88,7 @@ const Blog = ()=>{
             ))
           }
         </div>
+       
       </section>
     </>
   );

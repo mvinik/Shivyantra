@@ -28,6 +28,7 @@ import Query from './components/Query';
 import ScrollToTop from './components/Button/Button';
 import BlogContent from './pages/Blog/BlogContent';
 import { useLocation } from 'react-router-dom';
+import Pract from './components/Prac';
 const client = new QueryClient();
 
 function App() {
@@ -57,8 +58,8 @@ function App() {
         <TopSlider/>
        
 
-        <TopNav />
         <Navbar />
+        <TopNav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
@@ -79,6 +80,7 @@ function App() {
           <Route path="/ForgetPassword" element={< ForgetPassword/>} />
           <Route  path='/query' element={<Query/>}/>
           <Route  path='/blogcontent' element={<BlogContent/>}/>
+          <Route path='/pract' element={<Pract/>}/>
         </Routes>
         <ScrollToTop/>
         <Footer />

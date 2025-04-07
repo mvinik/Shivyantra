@@ -1,5 +1,4 @@
 import React, { lazy } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Bounce, toast } from "react-toastify";
 import { addItem } from "../../Slice/cartSlice";
 import api from "../../Utils/api";
@@ -11,6 +10,9 @@ import { useState } from "react";
 import Modal from "react-modal";
 import CartSideBar from "../../pages/AddToCart/CartSideBar";
 import { useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
+
+
 // const JWT = localStorage.getItem('JwtToken');
 let JWT;
 
@@ -183,6 +185,7 @@ const Card = ({ product }) => {
               <div className="flex  items-center sm:mt-2">
                 <span className="text-black bottom-0 font-bold text-[12px]  lg:text-lg">
                   &#8377;{product?.attributes.Price}
+                 
                 </span>
               </div>
             )}

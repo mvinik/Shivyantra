@@ -10,7 +10,7 @@ import Login from "../../pages/Auth/Login";
 import { useQuery, useQueryClient } from "react-query";
 import Navbar from "../NavBar/Navbar";
 import api from "../../Utils/api";
-// 
+
 let isLogin;
 const userConfirmed = localStorage.getItem('userConfirmed') === "true";
 const LoginConfirmed = localStorage.getItem('LoginConfirmed') === "true";
@@ -27,6 +27,7 @@ if (userConfirmed) {
 
 
 const TopNav = () => {
+
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,7 +56,7 @@ const TopNav = () => {
     window.location.reload();
   }
   const user = localStorage.getItem('UserName');
-  console.log(user,'user')
+  // console.log(user,'user')
    
 console.log()
   const { data: Cate } = useQuery("TopNavCategory", async () => {
@@ -109,28 +110,55 @@ console.log()
     }, []);
   return (
     <>
-      <nav className=" shadow-lg sm:py-5 py-2 items-center">
+      <nav className=" shadow-lg sm:py-5  items-center">
         <div className="px-5 sm:px-10">
-          <div className="flex justify-between items-center h-16">
+        
+          <div className="flex  justify-between items-center h-10">
+            
+          
             {/* Left section for the logo */}
-            <div className="flex-shrink-0">
-              <a href="/" className="text-xl font-bold">
-                {/* <img
+            <div className="flex flex-row justify-center m-2 items-center text-sm font-[600] ">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+            width="22" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="#094680" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-phone-call-icon px-1 lucide-phone-call hidden md:block"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>    
+            <h4 className="text-red hidden md:block px-1">9876543210</h4>
+            <a href="/" className="text-xl sm:block md:hidden font-bold text-red">
+                      {/* <img
+                        className="h-16"
+                        src="https://api.shriworks.com/uploads/logoo_d8327e38ee.png"
+                        alt="Shriworks Logo"
+                      /> */}
+                      <h3  className="text-xl font-bold text-red">Shivyantra</h3>
+                    </a>
+              {/* <a href="/" className="">
+                <img
                   className="h-16 sm:h-28"
                   src="https://api.shriworks.com/uploads/logoo_d8327e38ee.png"
                   alt="Shriworks Logo"
-                /> */}
-                <h1 className="text-red">Shivyantra</h1>
-              </a>
+                />
+              </a> */}
             </div>
 
             {/* Middle section for the nav menu */}
+            <div className="lg:flex hidden md:block lg:hidden items-center justify-center  ">
+            <a href="/" className="text-xl  font-bold text-red">
+                      {/* <img
+                        className="h-16"
+                        src="https://api.shriworks.com/uploads/logoo_d8327e38ee.png"
+                        alt="Shriworks Logo"
+                      /> */}
+                      <h3  className="text-xl font-bold text-red">Shivyantra</h3>
+                    </a>
+            </div>
 
             <div className="lg:flex hidden items-center justify-center  ">
               <div className="rounded-lg  p-5 ">
-                <div className="flex  shadow-lg shadow-gray-300 rounded-lg">
+                
+                <div className="flex  bg-white border border-red rounded-full w-96">
                   {/* <Navbar/> */}
-                  <div className="flex w-10 shadow-lg items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-yellow bg-white p-5">
+                  <div className="flex w-10  items-center justify-center rounded-tl-lg rounded-bl-lg   p-5">
                     <svg
                       viewBox="0 0 20 20"
                       aria-hidden="true"
@@ -141,7 +169,7 @@ console.log()
                   </div>
                   <input
                     type="text"
-                    className="w-[300px] bg-white shadow-lg text-black pl-2 text-base font-semibold outline-0"
+                    className="w-[300px] text-black pl-2 text-base font-semibold outline-0"
                     placeholder="Search for the product..."
                     id="search-product"
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -216,13 +244,14 @@ console.log()
 
                   <input
                     type="button"
-                    value="Search"
-                    className="bg-red p-2 rounded-tr-lg shadow-2xl rounded-br-lg text-yellow font-semibold hover:bg-red/85 transition-colors"
+                    
+                    className=" p-2 rounded-tr-lg shadow-2xl rounded-br-lg  font-semibold transition-colors"
                     onClick={handleSearch}
                   />
                 </div>
               </div>
             </div>
+            
 
             {/* Right section for the search input, cart, and profile icon */}
             <div className="relative flex items-center space-x-1 sm:space-x-4">
@@ -276,19 +305,19 @@ console.log()
                       />
                     </svg>
                     {!isLogin ? (
-                      <h4 onClick={openModal}  className="flex  text-[10px] sm:text-[14px]  font-bold items-start flex-col gap-0">
-                        Hello
-                        <span className="text-[10px] sm:text-[14px]  font-[900]">
-                          Log In?
-                        </span>
+                      <h4 onClick={openModal}  className="flex text-[10px] sm:text-[14px] hidden lg:block font-bold items-start flex-col gap-0">
+                        Login / Register
+                        {/* <span className="text-[10px] sm:text-[14px]  font-[900]">
+                         /Register
+                        </span> */}
                       </h4>
                     )
                       : (
                         <h4 className="flex  text-[10px] sm:text-[14px]  font-bold items-start flex-col gap-0">
-                          Hello 
-                          <span className="text-[10px] sm:text-[14px]  font-[900]">
+                        {user?.length > 10 ? user?.substring(0,10) : user}
+                          {/* <span className="text-[10px] sm:text-[14px]  font-[900]">
                             {user?.length > 10 ? user?.substring(0,10) : user}
-                          </span>
+                          </span> */}
                         </h4>
                       )}
                   </Menu.Button>
@@ -372,7 +401,7 @@ console.log()
 
                 {/* Drawer Sidebar */}
                 <div
-                  className={`fixed top-0 right-0 h-full w-64 z-[9999] bg-cover bg-white bg5 shadow-lg transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+                  className={`fixed top-0 right-0 h-full w-64 z-[9999] bg-cover bg-white bg5 shadow-lg transform ${isMenuOpen ? "translate-x-0 overflow-y-scroll" : "translate-x-full"
                     } transition-transform duration-300 ease-in-out z-50`}
                 >
                   <div className="flex justify-between p-4 ">
@@ -430,7 +459,7 @@ console.log()
                           />
                         </svg>
                       </Popover.Button>
-                      <Popover.Panel className="flex flex-col mt-2 text-black hover:text-red cursor-pointer shadow-lg shadow-red  px-4 py-2 rounded-xl">
+                      <Popover.Panel className="flex flex-col mt-2  text-black hover:text-red cursor-pointer shadow-lg shadow-red  px-4 py-2 rounded-xl">
                         {Array.isArray(Cate) ? (
                           Cate.map((category, index) => (
                             <a
@@ -492,7 +521,7 @@ console.log()
                 {/* Overlay */}
                 {isMenuOpen && (
                   <div
-                    className="fixed inset-0 bg-red opacity-50 z-40"
+                    className="fixed inset-0 bg-gray opacity-70 z-40"
                     onClick={() => setIsMenuOpen(false)}
                   />
                 )}
@@ -504,88 +533,99 @@ console.log()
 
       <div className=" lg:hidden items-center justify-center ">
         <div className="rounded-lg  p-2">
-          <div className="flex">
-            <div className="flex w-10 items-center shadow-lg justify-center rounded-tl-lg rounded-bl-lg border-r border-yellow bg-white p-5">
-              <svg
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-                className="pointer-events-none absolute w-5 fill-red transition"
-              >
-                <path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
-              </svg>
-            </div>
-            <input
-              type="text"
-              className="w-full bg-white text-black shadow-lg pl-2 text-base font-semibold outline-0"
-              placeholder="Search product..."
-              onChange={(e) => setSearchTerm(e.target.value)}
-              id="search-product"
-              autoComplete="off"
-            />
-
-            {/* Dropdown here */}
-            {/* <Menu as="div" className="relative  ">
-              <div>
-                <MenuButton className="flex border-l  border-yellow  items-center w-max justify-center  shadow-lg bg-white p-3 text-sm font-semibold text-black ">
-                  {selectedCategory}
-                  <ChevronDownIcon
-                    aria-hidden="true"
-                    className="-mr-1 h-5 w-5 text-black"
+        <div className="flex  bg-white border border-red rounded-full">
+                  {/* <Navbar/> */}
+                  <div className="flex w-10  items-center justify-center p-5">
+                    <svg
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                      className="pointer-events-none absolute w-5 fill-red transition"
+                    >
+                      <path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    className="w-[300px] text-black pl-2 text-base font-semibold outline-0"
+                    placeholder="Search for the product..."
+                    id="search-product"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleSearch();
+                      }
+                    }}
+                    autoComplete="off"
                   />
-                </MenuButton>
-              </div>
 
-              <MenuItems
-                transition
-                className="absolute right-0 z-50 mt-2 w-56 overflow-hidden origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-              >
-                <div className="py-1">
-                  <MenuItem>
-                    {({ active }) => (
-                      <a
-                        href="#"
-                        className={`block px-4 py-2 text-sm text-black ${active
-                          ? "bg-white translate-x-1 transition-all duration-300 text-red"
-                          : ""
-                          }`}
-                        onClick={() => handleMenuItemClick("All Categories")}
-                      >
-                        All Categories
-                      </a>
-                    )}
-                  </MenuItem>
-                  {Array.isArray(Cate) ? (
-                    Cate.map((category, index) => (
-                      <MenuItem key={index}>
-                        {({ active }) => (
-                          <a
-                            className={`block px-4 py-2 cursor-pointer text-sm text-black ${active
-                              ? "bg-white translate-x-1 transition-all duration-300 text-red"
-                              : ""
+                  {/* Dropdown here */}
+                  {/* <Menu as="div" className="relative  inline-block shadow-lg">
+                    <div>
+                      <MenuButton className="inline-flex border-l  border-yellow items-center w-full justify-center  shadow-sm bg-white p-3 text-sm font-semibold text-black ">
+                        {selectedCategory}
+                        <ChevronDownIcon
+                          aria-hidden="true"
+                          className="-mr-1 h-5 w-5 text-black"
+                        />
+                      </MenuButton>
+                    </div>
+
+                    <MenuItems
+                      transition
+                      className="absolute right-0 h-96 overflow-y-scroll z-50 mt-2 w-56 overflow-hidden origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                    >
+                      <div className="py-1">
+                        <MenuItem>
+                          {({ active }) => (
+                            <a
+                              className={`block px-4 py-2 cursor-pointer text-sm text-black ${
+                                active
+                                  ? "bg-white translate-x-1 transition-all duration-300 text-red"
+                                  : ""
                               }`}
-                            onClick={() =>
-                              handleMenuItemClick(`${category?.attributes?.CategoryName}`)
-                            }
-                          >
-                            {category?.attributes?.CategoryName}
-                          </a>
+                              onClick={() =>
+                                handleMenuItemClick("All Categories")
+                              }
+                            >
+                              All Categories
+                            </a>
+                          )}
+                        </MenuItem>
+                        {Array.isArray(Cate) ? (
+                          Cate.map((category, index) => (
+                            <MenuItem key={index}>
+                              {({ active }) => (
+                                <a
+                                  className={`block px-4 py-2 cursor-pointer text-sm text-black ${
+                                    active
+                                      ? "bg-white translate-x-1 transition-all duration-300 text-red"
+                                      : ""
+                                  }`}
+                                  onClick={() =>
+                                    handleMenuItemClick(
+                                      `${category?.attributes?.CategoryName}`
+                                    )
+                                  }
+                                >
+                                  {category?.attributes?.CategoryName}
+                                </a>
+                              )}
+                            </MenuItem>
+                          ))
+                        ) : (
+                          <p>No categories available</p>
                         )}
-                      </MenuItem>
-                    ))
-                  ) : (
-                    <p>No categories available</p>
-                  )}
-                </div>
-              </MenuItems>
-            </Menu> */}
+                      </div>
+                    </MenuItems>
+                  </Menu>  */}
 
-            <input
-              type="button"
-              value="Search"
-              className="bg-red p-2 rounded-tr-lg rounded-br-lg text-yellow font-semibold hover:bg-red/85 transition-colors"
-              onClick={handleSearch}
-            />
-          </div>
+                  <input
+                    type="button"
+                    
+                    className=" p-2   font-semibold transition-colors"
+                    onClick={handleSearch}
+                  />
+                </div>
         </div>
       </div>
       <Login setIsOpen={setIsOpen} modalIsOpen={modalIsOpen} />

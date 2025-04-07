@@ -60,19 +60,21 @@ const FactoryClips = ({Media,isLoading}) => {
   // if (!Media) return null;
   return (
 <div className='mb-10 px-2'>
-
-<h2 class="flex flex-row flex-nowrap items-center ">
-          <span class="flex-grow block border-t border-red"></span>
-          <span class="flex-none block mx-4 px-4 py-2.5  lg:text-xl rounded leading-none uppercase font-bold bg-red text-yellow">
-              Our Blogs
-          </span>
-          <span class="flex-grow block border-t border-red"></span>
-      </h2>
+<div className=' flex flex-col justify-center items-center m-5'>
+      <div className="flex-grow  justify-center items-center md:w-1/4 sm:w-full"> 
+        <h2 className="flex flex-row flex-nowrap  items-center">
+        <span className="flex-grow block border-t border-red "></span>
+        <span className="flex-none block mx-4 px-2 py-2.5 lg:text-xl rounded leading-none uppercase font-semibold  text-red">
+     Our Blogs
+        </span>
+        <span className="flex-grow block border-t border-red"></span>
+      </h2></div>
+      </div>
 
     <div className=' mt-10 mb-10'>
       <Marquee play={true} direction={'right'} pauseOnHover={true} loop={0}>
       {blog?.map((blog, index) => (
-        <div className='sm:h-70 h-40 items-center justify-center' key={index}   
+        <div className='sm:h-70 h-40 items-center justify-center my-5' key={index}   
          onClick={() => navigator("/blogcontent")}>
      
 

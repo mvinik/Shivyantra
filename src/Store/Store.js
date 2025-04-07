@@ -15,6 +15,7 @@ import authSlice from "../Slice/authSlice";
 import registerSlice from "../Slice/registerSlice";
 
 
+
   const persistConfig = {
     key: 'cart',
     storage,
@@ -28,6 +29,7 @@ const Store = configureStore({
         cart: persistedCartReducer,
         auth: authSlice,
         register:registerSlice,
+        
       },
 
       middleware: (getDefaultMiddleware) =>

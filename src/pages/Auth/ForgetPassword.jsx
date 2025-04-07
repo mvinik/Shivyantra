@@ -50,24 +50,24 @@ const ForgetPassword = () => {
         <h2 className="text-xl font-semibold mb-4">Change Password</h2>
         <form onSubmit={handleForgetPassword} className="space-y-4">
           <div>
-            <label className="block text-gray-700">New Password</label>
+            <label className="block text-black">New Password</label>
             <input
               type="password"
               name="newPassword"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border border-black focus:border-red p-2 rounded"
               required
             />
           </div>
           <div>
-            <label className="block text-gray-700">Confirm New Password</label>
+            <label className="block text-black">Confirm New Password</label>
             <input
               type="password"
               name="confirmPassword"
               value={confirmNewPassword}
               onChange={(e) => setConfirmNewPassword(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded"
+              className="w-full border border-black focus:border-red p-2 rounded"
               required
             />
           </div>

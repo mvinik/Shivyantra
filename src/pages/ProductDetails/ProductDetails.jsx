@@ -453,7 +453,7 @@ const ProductDetails = () => {
 
 
 
-                <div className=" w-full bg-white mx-auto mt-5  shadow rounded-lg">
+                <div className=" w-full mx-auto mt-5 ">
                   <h2 className="text-x text-black mb-5 font-bold uppercase">Write a Review</h2>
                   {/* Star Rating */}
                   <div className="flex space-x-1 mb-4">

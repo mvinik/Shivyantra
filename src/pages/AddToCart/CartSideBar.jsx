@@ -108,9 +108,9 @@ const CartSidebar = ({ isCartOpen, onCartClose,enableRefetch,onRefetchHandled })
         <ul className="overflow-y-scroll h-[70vh] md:h-[65vh] lg:h-[75vh]" >
             
       {/* Free Delivery Progress Bar */}
-      <FreeDeliveryProgress cartTotal={totalAmount.toFixed(2)} />
+      {/* <FreeDeliveryProgress cartTotal={totalAmount.toFixed(2)} /> */}
           {cart?.carts?.map((item) => (
-            <li key={item.id} className="flex gap-2 mb-4 rounded-md shadow-red shadow-sm p-2" >
+            <li key={item.id} className="flex gap-2 mb-4 rounded-md  shadow-red shadow-sm p-2 " >
               <button
                onClick={() => RemoveCart(item?.id)}
                className="ml-auto text-red-600  p-1 text-black rounded-md text-opacity-80">x</button>
@@ -121,7 +121,7 @@ const CartSidebar = ({ isCartOpen, onCartClose,enableRefetch,onRefetchHandled })
               />
               <div className="flex-1">
                 <h3 className="text-sm font-semibold truncate">
-                  {item?.product?.ProductName.length > 24 ? item?.product?.ProductName.substring(0,24)+".." : item?.product?.ProductName}
+                  {item?.product?.ProductName.length > 20 ? item?.product?.ProductName.substring(0,20)+".." : item?.product?.ProductName}
                 </h3>
                 <p>
                   {/* &#8377;

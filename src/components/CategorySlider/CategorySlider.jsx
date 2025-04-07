@@ -69,8 +69,8 @@ const CategorySlider = ({ CategoryData }) => {
   };
   const settings = {
     infinite: true,
-    autoplay: false,
-    // speed: 1000,
+    autoplay: true,
+   speed: 1000,
     autoplaySpeed: 2500,
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -102,44 +102,42 @@ const CategorySlider = ({ CategoryData }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          rows: 1,
-          centerMode: true,
-        },
-      },
-      {
-        breakpoint: 320,
-        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           rows: 1,
           centerMode: true,
         },
       },
+      
+    
     ],
   };
 
-  return (
-    <div className="py-5 justify-center items-center w-50 h-96">
-           <h2 className="flex flex-row flex-nowrap items-center">
-        <span className="flex-grow block border-t border-red"></span>
-        <span className="flex-none block mx-4 px-4 py-2.5 lg:text-xl rounded leading-none uppercase font-bold bg-red text-yellow">
-          Categories
+  return (<>
+    <div className='my-10'>
+      <div className=' flex flex-col justify-center items-center my-10 m-5'>
+      <div className="flex-grow  md:w-1/4 sm:w-full sm:justify-center sm:items-center "> 
+        <h2 className="flex flex-row flex-nowrap  items-center">
+        <span className="flex-grow block border-t border-red "></span>
+        <span className="flex-none block mx-4 px-2  lg:text-xl rounded leading-none uppercase font-semibold  text-red">
+        Categories
         </span>
         <span className="flex-grow block border-t border-red"></span>
-      </h2>
+      </h2></div>
+      </div>
+    <div className="py-2 justify-center items-center ">
 
-      <Slider className="cateSlider flex  justify-center items-center" {...settings}>
+
+      <Slider className="cateSlider flex " {...settings}>
         {category?.map((cate, index) => (
           <div
             key={index}
-            className="py-20 flex flex-col w-full  justify-center items-center text-center cursor-pointer  bg-transparent rounded"
+            className=" flex flex-col w-full  text-center cursor-pointer  bg-transparent rounded"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={() => handleMouseUp(cate?.category?.data?.attributes?.CategoryName)}
           >
-            <div className='object-fit w-full h-full px-1 flex items-center justify-center  '>
+            <div className='object-fit  flex items-center justify-center  '>
             <img
             // style={{width:'150px',height:'150px'}}
               className="h-32 w-32 rounded-full"
@@ -147,13 +145,15 @@ const CategorySlider = ({ CategoryData }) => {
               alt={cate?.category?.data?.attributes?.CategoryName}
             />
             </div>
-            <h1 className="font-bold mt-2 text-center py-5 text-black text-md rounded  text-[16px] sm:text-sm">
+            <h1 className="font-bold  text-center py-5 text-black text-md rounded  text-[16px] sm:text-sm">
               {cate?.category?.data?.attributes?.CategoryName}
             </h1>
           </div>
         ))}
       </Slider>
     </div>
+    </div>
+    </>
   );
 };
 

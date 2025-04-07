@@ -253,7 +253,7 @@ const Login = ({ setIsOpen, modalIsOpen }) => {
         const res = await api.post(`api/auth/forgot-password`,{
           email:loginEmail
         })
-        // console.log(res,'Forget password reset')
+        console.log(res,'Forget password reset')
         return res.data
       } catch (error) {
         console.log(error)
